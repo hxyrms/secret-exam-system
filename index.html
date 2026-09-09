@@ -565,23 +565,47 @@ const bankData=[
   {id:8,type:"简答题",cat:"涉密人员管理",lv:"秘密",diff:"难",stem:"简述涉密人员计算机管理'十个不得'中至少三项核心要求。",opts:[],ans:[],rate:"—"},
   {id:9,type:"单选题",cat:"涉密场所与会议",lv:"秘密",diff:"易",stem:"销毁秘密文件、资料要履行()手续，并由两名以上工作人员监销。",opts:["清点","交接","审批、登记"],ans:[2],rate:"90%"},
   {id:10,type:"多选题",cat:"涉密计算机信息系统",lv:"机密",diff:"难",stem:"涉密信息处理场所应当采取哪些保密措施？",opts:["定期进行保密技术检查","配备监控报警","禁止无关人员进入","使用无线网卡便于管理"],ans:[0,1,2],rate:"72%"},
+  {id:11,type:"单选题",cat:"涉密人员管理",lv:"秘密",diff:"易",stem:"涉密人员离岗离职时，应当清退所保管的()。",opts:["涉密文件资料与载体","所有办公用品","个人物品"],ans:[0],rate:"85%"},
+  {id:12,type:"单选题",cat:"涉密计算机信息系统",lv:"机密",diff:"中",stem:"涉密计算机的硬盘需要淘汰时，应当()处理。",opts:["格式化后继续使用","送交指定单位进行专业销毁","自行拆解丢弃"],ans:[1],rate:"78%"},
+  {id:13,type:"多选题",cat:"保密法律法规",lv:"秘密",diff:"中",stem:"《保密法》规定的国家机关法定职责包括哪些？",opts:["保守国家秘密","健全保密制度","开展保密宣传教育","查处泄露行为"],ans:[0,1,2,3],rate:"80%"},
+  {id:14,type:"多选题",cat:"涉密载体管理",lv:"机密",diff:"难",stem:"下列哪些行为属于违规处理涉密载体？",opts:["擅自携带涉密载体外出","在家中处理涉密文件","通过普通快递寄送涉密资料","按规定办理审批后销毁"],ans:[0,1,2],rate:"67%"},
+  {id:15,type:"判断题",cat:"涉密场所与会议",lv:"秘密",diff:"易",stem:"召开涉密会议应当在有保密措施的场所进行。",opts:["正确","错误"],ans:[0],rate:"92%"},
+  {id:16,type:"判断题",cat:"保密法律法规",lv:"秘密",diff:"中",stem:"非涉密人员可以偶尔处理一般商业秘密。",opts:["正确","错误"],ans:[1],rate:"75%"},
+  {id:17,type:"填空题",cat:"涉密人员管理",lv:"机密",diff:"中",stem:"涉密岗位工作人员的保密承诺书应当()签订一次。",opts:["每年"],ans:[0],rate:"—"},
+  {id:18,type:"填空题",cat:"涉密载体管理",lv:"秘密",diff:"易",stem:"传递国家秘密载体应当通过()方式进行。",opts:["机要通信或专人护送"],ans:[0],rate:"—"},
+  {id:19,type:"简答题",cat:"涉密计算机信息系统",lv:"机密",diff:"难",stem:"简述涉密计算机信息系统'三权分立'的具体内容。",opts:[],ans:[],rate:"—"},
+  {id:20,type:"简答题",cat:"涉密场所与会议",lv:"秘密",diff:"中",stem:"简述召开涉密会议的主要保密要求。",opts:[],ans:[],rate:"—"},
 ];
 const papers=[
-  {id:1,name:"涉密人员上岗必考题(2026版)",total:100,dur:60,lv:"秘密",status:"已发布",q:[1,2,3,4,5,6,9]},
-  {id:2,name:"核心涉密人员年度复训卷",total:100,dur:90,lv:"机密",status:"草稿",q:[3,5,6,8,10]},
-  {id:3,name:"保密法律法规专项测试",total:60,dur:45,lv:"秘密",status:"已发布",q:[1,2,9]},
+  {id:1,name:"涉密人员上岗必考题(2026版)",total:100,dur:60,lv:"秘密",status:"已发布",q:[1,2,3,4,5,6,9],sc:[15,15,15,15,10,10,20]},
+  {id:2,name:"核心涉密人员年度复训卷",total:100,dur:90,lv:"机密",status:"草稿",q:[3,5,6,8,10],sc:[20,20,20,20,20]},
+  {id:3,name:"保密法律法规专项测试",total:60,dur:45,lv:"秘密",status:"已发布",q:[1,2,9],sc:[20,20,20]},
+  /* 按题型划分的专项卷（在线考试可分别进入） */
+  {id:4,name:"单选题专项测试卷",total:70,dur:45,lv:"秘密",status:"已发布",q:[1,2,3,6,9,11,12],sc:[10,10,10,10,10,10,10]},
+  {id:5,name:"多选题专项测试卷",total:60,dur:40,lv:"秘密",status:"已发布",q:[4,10,13,14],sc:[15,15,15,15]},
+  {id:6,name:"判断题专项测试卷",total:60,dur:30,lv:"秘密",status:"已发布",q:[5,15,16],sc:[20,20,20]},
+  {id:7,name:"填空题专项测试卷",total:60,dur:40,lv:"秘密",status:"已发布",q:[7,17,18],sc:[20,20,20]},
+  {id:8,name:"简答题专项测评卷",total:90,dur:60,lv:"机密",status:"已发布",q:[8,19,20],sc:[30,30,30]},
+  {id:9,name:"综合题型演练卷",total:80,dur:90,lv:"秘密",status:"已发布",q:[1,4,5,7,8,13,16,19],sc:[10,10,10,10,10,10,10,10]},
 ];
 const exams=[
   {id:1,name:"2026年度全员保密教育考试",paper:1,range:"全体涉密人员",start:"2026-09-10 09:00",end:"2026-09-20 18:00",status:"未开始",anti:{sw:3,cam:true,copy:true,rand:false}},
   {id:2,name:"新入职人员保密上岗考试",paper:3,range:"2026年新入职涉密人员",start:"2026-09-08 14:00",end:"2026-09-08 17:00",status:"进行中",anti:{sw:2,cam:false,copy:true,rand:true}},
   {id:3,name:"核心人员年度复训考核",paper:2,range:"核心涉密人员",start:"2026-08-20 09:00",end:"2026-08-25 18:00",status:"已结束",anti:{sw:1,cam:true,copy:true,rand:false}},
+  /* 题型专项考试 */
+  {id:4,name:"单选题专项测验",paper:4,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:3,cam:false,copy:true,rand:false}},
+  {id:5,name:"多选题专项测验",paper:5,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:3,cam:false,copy:true,rand:false}},
+  {id:6,name:"判断题专项测验",paper:6,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:2,cam:false,copy:false,rand:false}},
+  {id:7,name:"填空题专项测验",paper:7,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:3,cam:false,copy:false,rand:false}},
+  {id:8,name:"简答题专项测评",paper:8,range:"核心涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:2,cam:true,copy:false,rand:false}},
+  {id:9,name:"综合题型演练测验",paper:9,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:5,cam:true,copy:true,rand:true}},
 ];
 const scores=[
   {id:1,exam:"新入职人员保密上岗考试",person:"李晓明",dept:"办公室",score:94,pass:true,cert:"BM2026-0281"},
   {id:2,exam:"新入职人员保密上岗考试",person:"王海",dept:"信息中心",score:88,pass:true,cert:"BM2026-0282"},
   {id:3,exam:"核心人员年度复训考核",person:"张伟",dept:"保密处",score:71,pass:true,cert:"BM2026-0190"},
   {id:4,exam:"核心人员年度复训考核",person:"陈静",dept:"档案室",score:58,pass:false,cert:"—"},
-  {id:5,exam:"2026年度全员保密教育考试",person:"刘洋",dept:"科研所",score:"阅卷中",pass:null,cert:"—"},
+  {id:5,exam:"2026年度全员保密教育考试",person:"刘洋",dept:"科研所",obj:82,score:"阅卷中",pass:null,cert:"—"},
 ];
 const persons=[
   {id:1,name:"李晓明",dept:"办公室",lv:"一般",cert:true,last:"新入职上岗考试 94"},
@@ -596,6 +620,15 @@ const logs=[
   {t:"2026-09-07 16:21",user:"王海",act:"参加(新入职人员保密上岗考试)",ip:"10.12.*.18"},
   {t:"2026-09-07 09:15",user:"系统",act:"发布考试(2026年度全员保密教育考试)",ip:"—"},
 ];
+
+/* ============ 数据持久化（刷新不丢） ============ */
+const STORE_KEY="secretExamDemo_v2";
+function persist(){try{localStorage.setItem(STORE_KEY,JSON.stringify({bankData,papers,exams,scores,persons}));}catch(e){}}
+function restore(){try{const s=localStorage.getItem(STORE_KEY);if(!s)return false;const d=JSON.parse(s);
+  if(d&&d.bankData&&d.bankData.length){bankData.length=0;bankData.push(...d.bankData);
+    papers.length=0;papers.push(...d.papers);exams.length=0;exams.push(...d.exams);
+    scores.length=0;scores.push(...d.scores);persons.length=0;persons.push(...d.persons);return true;}}catch(e){}return false;}
+function resetDemo(){if(!confirm("确认重置为初始演示数据？当前所有改动将丢失。"))return;localStorage.removeItem(STORE_KEY);location.reload();}
 
 /* ============ 工具 ============ */
 const $=s=>document.querySelector(s);
@@ -688,6 +721,7 @@ function buildNav(){$("#nav").innerHTML=NAV.map(g=>`<div class="side-g">${g.g}</
 function showView(v){$$(".side-i").forEach(n=>n.classList.toggle("on",n.dataset.v===v));
   $$(".view").forEach(s=>s.classList.remove("on"));$("#v-"+v).classList.add("on");
   (RENDER_MAP[v]||(()=>{}))();}
+restore();
 buildNav();
 
 /* ============ 工作台 ============ */
@@ -739,21 +773,25 @@ function renderDashboard(){
   const waiting=exams.filter(e=>e.status==='未开始').length;
   const pub=papers.filter(p=>p.status==='已发布').length;
   const pending=scores.filter(s=>s.score==='阅卷中').length;
-  const total=bankData.length*12+38;
+  const total=bankData.length;
+  const lvC2={};bankData.forEach(b=>lvC2[b.lv]=(lvC2[b.lv]||0)+1);
+  const draftN=papers.filter(p=>p.status!=='已发布').length;
+  const endedN=exams.filter(e=>e.status==='已结束').length;
+  const gradedN=scores.filter(s=>s.pass!==null).length;
   /* 多色语义卡（参考截图）：每张卡一个语义色 */
   const KPI=[
-    {n:'题库试题',i:'book',c:'#165DFF',cbg:'#E6F0FF',badge:'机密占比 '+Math.round(secret/total*100)+'%',
-     v:total,u:'题',ch:PASS_RATE.slice(),ct:'line',
-     subs:[{v:secret,l:'机密级'},{v:42,l:'秘密级'},{v:114,l:'内部'}]},
-    {n:'试卷总数',i:'fileText',c:'#00B42A',cbg:'#E8FFED',badge:'已发布率 '+Math.round(pub/papers.length*100)+'%',
-     v:papers.length,u:'套',ch:PASS_RATE.slice(),ct:'line',
-     subs:[{v:pub,l:'已发布'},{v:papers.length-pub,l:'草稿'},{v:0,l:'已停用'}]},
-    {n:'进行中考试',i:'calendar',c:'#FF7D00',cbg:'#FFF3E8',badge:'参与率 45%',
-     v:running,u:'场',ch:PASS_RATE.slice(),ct:'line',
-     subs:[{v:running,l:'进行中'},{v:waiting,l:'未开始'},{v:1,l:'已结束'}]},
-    {n:'待审卷',i:'clipboardCheck',c:'#FF453A',cbg:'#FFECE8',badge:'闭环率 75%',
-     v:pending,u:'份',ch:PASS_RATE.slice(),ct:'line',
-     subs:[{v:pending,l:'待审'},{v:2,l:'复审中'},{v:5,l:'已归档'}]},
+    {n:'题库试题',i:'book',c:'#165DFF',cbg:'#E6F0FF',badge:'机密占比 '+(total?Math.round(secret/total*100):0)+'%',
+     v:total,u:'题',ch:[Math.max(0,total-12),Math.max(0,total-8),Math.max(0,total-5),Math.max(0,total-3),Math.max(0,total-1),total],ct:'line',
+     subs:[{v:secret,l:'机密级'},{v:lvC2['秘密']||0,l:'秘密级'},{v:lvC2['内部']||0,l:'内部'}]},
+    {n:'试卷总数',i:'fileText',c:'#00B42A',cbg:'#E8FFED',badge:'已发布率 '+(papers.length?Math.round(pub/papers.length*100):0)+'%',
+     v:papers.length,u:'套',ch:[Math.max(0,papers.length-2),Math.max(0,papers.length-2),Math.max(0,papers.length-1),papers.length,papers.length,papers.length],ct:'line',
+     subs:[{v:pub,l:'已发布'},{v:draftN,l:'草稿'},{v:0,l:'已停用'}]},
+    {n:'进行中考试',i:'calendar',c:'#FF7D00',cbg:'#FFF3E8',badge:'考试共 '+exams.length+' 场',
+     v:running,u:'场',ch:[0,Math.max(0,running-1),waiting,running,running,running],ct:'line',
+     subs:[{v:running,l:'进行中'},{v:waiting,l:'未开始'},{v:endedN,l:'已结束'}]},
+    {n:'待审卷',i:'clipboardCheck',c:'#FF453A',cbg:'#FFECE8',badge:'已归档 '+gradedN+' 份',
+     v:pending,u:'份',ch:[pending+2,pending+1,pending+1,pending,pending,pending],ct:'line',
+     subs:[{v:pending,l:'待审'},{v:0,l:'复审中'},{v:gradedN,l:'已归档'}]},
   ];
   const tc={};bankData.forEach(b=>tc[b.type]=(tc[b.type]||0)+1);
   const ti={'单选题':'checkCircle','多选题':'checkCircle','判断题':'checkCircle','填空题':'pen','简答题':'fileText'};
@@ -899,6 +937,7 @@ function renderBank(){
   $("#v-bank").innerHTML=`
   <div class="page-head"><h2>题库管理</h2><span class="sub">共 ${bankData.length} 题 · 支持单/多/判/填/简五种题型</span><div class="spacer"></div>
     <button class="btn-2" onclick="openBankImport()">${ic('upload')}<span>批量导入</span></button>
+    <button class="btn-2" onclick="exportBank()">${ic('download')}<span>导出题库</span></button>
     <button class="btn-p" onclick="addQ()">${ic('plus')}<span>新增试题</span></button></div>
   <div class="card">
     <div class="toolbar">
@@ -954,8 +993,8 @@ function pickAns(b){if(window._qtype==="多选题"){
   b.style.background=on?"var(--card-2)":"var(--cp)";b.style.color=on?"var(--text)":"#fff";b.style.borderColor=on?"var(--border)":"var(--cp)";
 } else {$$("#ans-pick .btn-2").forEach(x=>{x.style.background="var(--card-2)";x.style.color="var(--text)";x.style.borderColor="var(--border)";});
   b.style.background="var(--cp)";b.style.color="#fff";b.style.borderColor="var(--cp)";}}
-function addQ(){window._ans=[];qModal("新增试题",null);}
-function editQ(id){const b=bankData.find(x=>x.id===id);window._ans=b.ans.slice();qModal("编辑试题 #"+id,b);}
+function addQ(){window._ans=[];window._qeditId=0;qModal("新增试题",null);}
+function editQ(id){const b=bankData.find(x=>x.id===id);window._ans=b.ans.slice();window._qeditId=id;qModal("编辑试题 #"+id,b);}
 function previewQ(id){const b=bankData.find(x=>x.id===id);
   openModal(`<div class="m-head"><h3>试题预览 #${id}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body"><div style="font-size:14px;line-height:1.8;margin-bottom:14px">${b.stem}</div>
@@ -968,9 +1007,20 @@ function saveQ(){
   if(t==="简答题"||t==="填空题"){opts=[$("#q-opts textarea,#q-opts input").value];}
   else{document.querySelectorAll("#q-opts .opt-row").forEach(r=>opts.push(r.querySelector("input").value));
     ans=Array.from(document.querySelectorAll("#ans-pick button")).filter(b=>b.style.background==="var(--cp)").map(b=>+b.dataset.a);}
-  const rec={id:Math.max(...bankData.map(b=>b.id))+1,type:t,cat:$("#q-cat").value,lv:$("#q-lv").value,diff:$("#q-diff").value,stem,opts,ans,rate:"—",analysis:$("#q-ana").value};
-  bankData.push(rec);closeModal();renderBank();toast("试题已保存至题库");}
-function delQ(id){if(confirm("确认删除该题？")){const i=bankData.findIndex(b=>b.id===id);bankData.splice(i,1);renderBank();}}
+  const rec={id:0,type:t,cat:$("#q-cat").value,lv:$("#q-lv").value,diff:$("#q-diff").value,stem,opts,ans,rate:"—",analysis:$("#q-ana").value};
+  if(window._qeditId){const b=bankData.find(x=>x.id===window._qeditId);Object.assign(b,rec);b.id=window._qeditId;closeModal();renderBank();toast("试题已更新");}
+  else{rec.id=Math.max(...bankData.map(b=>b.id))+1;bankData.push(rec);closeModal();renderBank();toast("试题已保存至题库");}
+  persist();window._qeditId=0;}
+function delQ(id){if(confirm("确认删除该题？")){const i=bankData.findIndex(b=>b.id===id);bankData.splice(i,1);persist();renderBank();}}
+function exportBank(){
+  if(!bankData.length){toast("题库为空");return;}
+  const head=["ID","题型","分类","密级","难度","题干","选项","答案","正确率","解析"];
+  const rows=bankData.map(b=>([b.id,b.type,b.cat,b.lv,b.diff,b.stem,b.opts.join("；"),b.ans.map(k=>"ABCDE"[k]||"").join(""),b.rate,b.analysis||""]));
+  const csv=[head,...rows].map(r=>r.map(c=>'"'+(""+(c==null?"":c)).replace(/"/g,'""')+'"').join(",")).join("\r\n");
+  const blob=new Blob(["﻿"+csv],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="题库导出.csv";a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast("题库已导出（"+bankData.length+" 题）");
+}
 
 /* ============ 题库批量导入 ============ */
 function openBankImport(){
@@ -1016,7 +1066,7 @@ function saveBankImport(){
   const list=parseBankLines(text);
   if(!list.length){toast("未解析到有效试题，请检查格式");return;}
   if(!confirm(`确认导入 ${list.length} 道试题到题库？`))return;
-  bankData.push(...list);closeModal();renderBank();toast(`已导入 ${list.length} 道试题`);
+  bankData.push(...list);persist();closeModal();renderBank();toast(`已导入 ${list.length} 道试题`);
 }
 function downloadBankTpl(){
   const tpl="题型|分类|密级|难度|题干|选项(分号分隔)|答案(字母)|解析\r\n单选题|保密法律法规|秘密|易|国家秘密是关系国家安全和利益,()的事项。|根据实际需要确定;依照法定程序确定;按照领导的意图确定|B|依据法定程序确定\r\n多选题|涉密人员管理|秘密|中|下列哪些属于涉密人员离岗离职前应当办理的事项?|清退所保管涉密载体;办理移交手续;注销门禁权限;接受保密提醒谈话|A;C;D\r\n判断题|涉密计算机信息系统|机密|难|涉密计算机信息系统可以与国际互联网实行逻辑隔离后连接。|正确;错误|A\r\n填空题|涉密载体管理|秘密|中|复制属于国家秘密的文件、资料,()原件的密级。|不得擅自改变\r\n简答题|涉密人员管理|秘密|难|简述涉密人员计算机管理'十个不得'中至少三项核心要求。||开放参考答案";
@@ -1032,7 +1082,7 @@ function renderPapers(){
     const tstr=Object.entries(types).map(([k,v])=>`${k} ${v}`).join(" · ");
     return `<tr><td><b>${p.name}</b></td><td>${tstr}</td><td><b>${p.total}</b> 分</td><td>${p.dur} 分钟</td>
       <td>${lvTag(p.lv)}</td><td>${statTag(p.status)}</td>
-      <td><div class="row-act"><span class="act-v" onclick="previewPaper(${p.id})">预览</span><span class="act-c" onclick="composePaper(${p.id})">组卷</span><span class="${p.status==='已发布'?'act-n':'act-d'}" onclick="togglePub(${p.id})">${p.status==='已发布'?'停用':'发布'}</span></div></td></tr>`;}).join("");
+      <td><div class="row-act"><span class="act-v" onclick="previewPaper(${p.id})">预览</span><span class="act-c" onclick="composePaper(${p.id})">组卷</span><span class="${p.status==='已发布'?'act-n':'act-d'}" onclick="togglePub(${p.id})">${p.status==='已发布'?'停用':'发布'}</span><span class="act-d" onclick="delPaper(${p.id})">删除</span></div></td></tr>`;}).join("");
   $("#v-paper").innerHTML=`
   <div class="page-head"><h2>试卷管理</h2><span class="sub">支持固定组卷 / 随机抽题两种模式</span><div class="spacer"></div>
     <button class="btn-p" onclick="composePaper()">${ic('plus')}<span>新建试卷</span></button></div>
@@ -1047,7 +1097,7 @@ function composePaper(id){
     <td><input type="checkbox" id="pp-chk-${b.id}" ${p&&p.q.includes(b.id)?'checked':''} style="accent-color:var(--cp)"></td>
     <td style="max-width:300px;white-space:normal">${b.stem.slice(0,34)}…</td>
     <td>${b.type}</td><td>${lvTag(b.lv)}</td>
-    <td><input id="pp-sc-${b.id}" value="10" style="width:56px;padding:5px 8px;border:1px solid var(--border);border-radius:7px;background:var(--card-2);color:var(--text)"></td></tr>`).join("");
+    <td><input id="pp-sc-${b.id}" value="${p&&p.sc&&p.q.includes(b.id)?p.sc[p.q.indexOf(b.id)]:10}" style="width:56px;padding:5px 8px;border:1px solid var(--border);border-radius:7px;background:var(--card-2);color:var(--text)"></td></tr>`).join("");
   openModal(`<div class="m-head"><h3>${p?'组卷 · '+p.name:'新建试卷'}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body">
     <div class="tabs"><button class="on" id="tab-fixed" onclick="ppTab('fixed')">固定组卷</button><button id="tab-rand" onclick="ppTab('random')">随机抽题</button></div>
@@ -1081,30 +1131,31 @@ function doRandom(){
 function savePaper(pid){
   const name=$("#pp-name").value.trim();if(!name){toast("请填写试卷名称");return;}
   const dur=parseInt($("#pp-dur").value)||60,lv=$("#pp-lv").value;
-  let q=[],total=0;
+  let q=[],sc=[],total=0;
   if(window._pmode==='random'){
-    q=window._rdraw.slice();total=q.length*10;
+    q=window._rdraw.slice();sc=q.map(()=>10);total=q.length*10;
     if(!q.length){toast("请先执行随机抽题");return;}
   } else {
-    bankData.forEach(b=>{const c=$("#pp-chk-"+b.id);if(c&&c.checked){const sc=parseInt($("#pp-sc-"+b.id).value)||10;q.push(b.id);total+=sc;}});
+    bankData.forEach(b=>{const c=$("#pp-chk-"+b.id);if(c&&c.checked){const s=parseInt($("#pp-sc-"+b.id).value)||10;q.push(b.id);sc.push(s);total+=s;}});
     if(!q.length){toast("请至少选择一道试题");return;}
   }
-  if(pid){const p=papers.find(x=>x.id===pid);p.name=name;p.dur=dur;p.lv=lv;p.q=q;p.total=total;}
-  else{papers.push({id:Math.max(...papers.map(x=>x.id))+1,name,total,dur,lv,status:"草稿",q});}
-  closeModal();renderPapers();toast("试卷已保存");
+  if(pid){const p=papers.find(x=>x.id===pid);p.name=name;p.dur=dur;p.lv=lv;p.q=q;p.sc=sc;p.total=total;}
+  else{papers.push({id:Math.max(...papers.map(x=>x.id))+1,name,total,dur,lv,status:"草稿",q,sc});}
+  persist();closeModal();renderPapers();toast("试卷已保存");
 }
 function previewPaper(id){const p=papers.find(x=>x.id===id);const qs=p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean);
   openModal(`<div class="m-head"><h3>试卷预览 · ${p.name}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body" style="max-height:62vh">总分 ${p.total} 分 · 时长 ${p.dur} 分钟 · ${lvTag(p.lv)}
     <div style="margin-top:14px">${qs.map((q,i)=>`<div style="padding:12px 0;border-bottom:1px dashed var(--border)"><b>${i+1}. [${q.type}]</b> ${q.stem}<div style="margin-top:6px;color:var(--text-2);font-size:13px;line-height:1.9">${q.opts.map((o,k)=>"ABCDE"[k]+". "+o).join("；")||"（简答/填空）"}</div></div>`).join("")}</div></div>
   <div class="m-foot"><button class="btn-2" onclick="closeModal()">关闭</button></div>`,"lg");}
-function togglePub(id){const p=papers.find(x=>x.id===id);p.status=p.status==='已发布'?'草稿':'已发布';renderPapers();toast(p.name+" 已"+(p.status==='已发布'?'发布':'停用'));}
+function togglePub(id){const p=papers.find(x=>x.id===id);p.status=p.status==='已发布'?'草稿':'已发布';persist();renderPapers();toast(p.name+" 已"+(p.status==='已发布'?'发布':'停用'));}
+function delPaper(id){if(!confirm("确认删除该试卷？关联考试不受影响，但试卷题目将不可用。"))return;const i=papers.findIndex(x=>x.id===id);if(i<0)return;papers.splice(i,1);persist();renderPapers();toast("试卷已删除");}
 
 /* ============ 考试管理 ============ */
 function renderExams(){
   const rows=exams.map(e=>{const p=papers.find(x=>x.id===e.paper);
     return `<tr><td><b>${e.name}</b></td><td>${p?p.name:'—'}</td><td>${e.range}</td><td>${e.start}<br><span style="color:var(--text-3);font-size:12px">至 ${e.end}</span></td>
-      <td>${statTag(e.status)}</td><td><div class="row-act"><span class="act-v" onclick="examSetting(${e.id})">配置</span><span class="act-c" onclick="startExam(${e.id})">进入</span><span class="act-d" onclick="stopExam(${e.id})">停用</span></div></td></tr>`;}).join("");
+      <td>${statTag(e.status)}</td><td><div class="row-act"><span class="act-v" onclick="examSetting(${e.id})">配置</span><span class="act-c" onclick="startExam(${e.id})">进入</span><span class="${e.status==='停用'?'act-n':'act-d'}" onclick="stopExam(${e.id})">停用</span><span class="act-d" onclick="delExam(${e.id})">删除</span></div></td></tr>`;}).join("");
   $("#v-exam").innerHTML=`
   <div class="page-head"><h2>考试管理</h2><span class="sub">配置考试范围、时间与防作弊策略</span><div class="spacer"></div>
     <button class="btn-p" onclick="examSetting()">${ic('plus')}<span>新建考试</span></button></div>
@@ -1123,7 +1174,11 @@ function examSetting(id){
       <div class="field"><label>开始时间</label><input id="ex-start" value="${e?e.start:'2026-09-10 09:00'}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>
       <div class="field"><label>结束时间</label><input id="ex-end" value="${e?e.end:'2026-09-20 18:00'}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>
     </div>
-    <div class="field"><label>参考人员范围</label><input id="ex-range" value="${e?e.range:'全体涉密人员'}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>
+    <div class="field"><label>参考人员范围</label>
+      <select id="ex-range" multiple size="${Math.min(persons.length||3,6)}" style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit">
+        ${persons.map(p=>`<option value="${p.name}" ${e&&e.range.includes(p.name)?'selected':''}>${p.name}（${p.dept}·${p.lv}涉密）</option>`).join("")}
+      </select>
+      <p style="font-size:11.5px;color:var(--text-3);margin-top:6px">可多选考生库人员；不选则默认「全体涉密人员」。</p></div>
     <h4 style="margin:18px 0 8px;font-size:14px">防作弊设置</h4>
     <div class="set-row"><div class="st"><b>允许切屏次数上限</b><p>超过将强制收卷并记录违纪</p></div>
       <input id="ex-sw" type="number" value="${a.sw}" min="0" max="10" style="width:78px;padding:8px 10px;border:1px solid var(--border);border-radius:9px;background:var(--card-2);color:var(--text)"></div>
@@ -1136,13 +1191,16 @@ function examSetting(id){
 function saveExam(eid){
   const name=$("#ex-name").value.trim();if(!name){toast("请填写考试名称");return;}
   const pname=$("#ex-paper").value;const paper=(papers.find(x=>x.name===pname)||papers[0]).id;
-  const rec={name,paper,range:$("#ex-range").value,start:$("#ex-start").value,end:$("#ex-end").value,
+  const selP=Array.from($("#ex-range").selectedOptions).map(o=>o.value);
+  const range=selP.length?selP.join("、"):"全体涉密人员";
+  const rec={name,paper,range,start:$("#ex-start").value,end:$("#ex-end").value,
     anti:{sw:parseInt($("#ex-sw").value)||0,cam:$("#ex-cam").classList.contains("on"),copy:$("#ex-copy").classList.contains("on"),rand:$("#ex-rand").classList.contains("on")}};
   if(eid){const e=exams.find(x=>x.id===eid);Object.assign(e,rec);}
   else{exams.push(Object.assign({id:Math.max(...exams.map(x=>x.id))+1,status:"未开始"},rec));}
-  closeModal();renderExams();toast("考试已保存");
+  persist();closeModal();renderExams();toast("考试已保存");
 }
-function stopExam(id){if(confirm("确认停用该考试？")){const e=exams.find(x=>x.id===id);e.status="停用";renderExams();toast("考试已停用");}}
+function stopExam(id){if(confirm("确认停用该考试？")){const e=exams.find(x=>x.id===id);e.status="停用";persist();renderExams();toast("考试已停用");}}
+function delExam(id){if(!confirm("确认删除该考试？删除后不可恢复。"))return;const i=exams.findIndex(x=>x.id===id);if(i<0)return;exams.splice(i,1);persist();renderExams();toast("考试已删除");}
 function startExam(id){showView("take");renderTake(id);}
 
 /* ============ 在线考试 · 考生列表 ============ */
@@ -1154,6 +1212,9 @@ function renderTakeList(){
     if(e.status==="进行中")btn=`<button class="btn-p" onclick="startExam(${e.id})">${ic('play')}<span>进入考试</span></button>`;
     else if(e.status==="已结束")btn=`<button class="btn-2" disabled style="opacity:.5;cursor:not-allowed">已结束</button>`;
     else btn=`<button class="btn-2" disabled style="opacity:.5;cursor:not-allowed">未开始 · ${e.start.slice(5)}</button>`;
+    const tmap={};
+    if(p)p.q.forEach(id=>{const b=bankData.find(x=>x.id===id);if(b)tmap[b.type]=(tmap[b.type]||0)+1;});
+    const tstr=Object.keys(tmap).length?Object.keys(tmap).map(k=>`<span style="font-size:11.5px;padding:3px 9px;border-radius:20px;background:var(--card-2);color:var(--text-2);border:1px solid var(--border)">${k} ${tmap[k]}</span>`).join(""):'<span style="font-size:11.5px;padding:3px 9px;border-radius:20px;background:var(--card-2);color:var(--text-3);border:1px solid var(--border)">暂无题目</span>';
     return `<div class="take-card">
       <div class="tc-top">${ic('shieldCheck')}<div><div class="tc-name">${e.name}</div><div class="tc-range">${e.range}</div></div>${statTag(e.status)}</div>
       <div class="tc-meta">
@@ -1161,6 +1222,7 @@ function renderTakeList(){
         <div><span>时长</span><b>${dur} 分钟</b></div>
         <div><span>作答时间</span><b style="font-size:12px;font-weight:500">${e.start.slice(5)} ~ ${e.end.slice(5)}</b></div>
       </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 2px">${tstr}</div>
       <div class="tc-act">${btn}</div>
     </div>`;
   }).join("");
@@ -1237,8 +1299,13 @@ function submitExam(forced){
   clearInterval(timer);window.removeEventListener("blur",examState._blur);
   let score=0;
   examState.questions.forEach(q=>{const a=examState.ans[q.id];
-    if(q.type==="单选题"||q.type==="判断题"){if(a&&a[0]===q.ans[0])score+=10;}
-    else if(q.type==="多选题"){if(a&&q.ans.length===a.length&&q.ans.every(x=>a.includes(x)))score+=10;}});
+    const _p=examState.p;const pt=(_p&&_p.sc&&_p.sc[_p.q.indexOf(q.id)])||10;
+    if(q.type==="单选题"||q.type==="判断题"){if(a&&a[0]===q.ans[0])score+=pt;}
+    else if(q.type==="多选题"){if(a&&q.ans.length===a.length&&q.ans.every(x=>a.includes(x)))score+=pt;}});
+  /* 交卷即回写成绩，形成「考试→审卷→成绩」闭环 */
+  const cand=persons.length?persons[Math.floor(Math.random()*persons.length)]:{name:"演示考生",dept:"保密处"};
+  const nid=(scores.reduce((m,s)=>Math.max(m,s.id),0))+1;
+  scores.push({id:nid,exam:examState.e.name,person:cand.name,dept:cand.dept,obj:score,subj:null,score:"阅卷中",pass:null,cert:"—",eid:examState.e.id});persist();
   const pass=score>=60;
   $("#v-take").innerHTML=`<div style="max-width:640px;margin:30px auto;text-align:center">
     <div style="font-size:54px;width:90px;height:90px;border-radius:50%;background:var(--cp-bg);color:var(--cp);display:flex;align-items:center;justify-content:center;margin:0 auto">${ic(forced?'clock':'award')}</div>
@@ -1273,20 +1340,36 @@ function renderGrade(){
   <div class="card"><div class="tbl-wrap"><table><thead><tr><th>考试</th><th>考生</th><th>部门</th><th>客观分</th><th>结果</th><th>操作</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
 }
 function gradePaper(id){const s=scores.find(x=>x.id===id);
+  const e=exams.find(x=>x.name===s.exam)||exams.find(x=>x.id===s.eid);
+  const p=e?papers.find(x=>x.id===e.paper):null;
+  const qs=p?p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean):[];
+  const obj=qs.filter(q=>q.type!=="简答题"&&q.type!=="填空题");
+  const subj=qs.filter(q=>q.type==="简答题"||q.type==="填空题");
+  const objScore=s.obj!=null?s.obj:obj.reduce((a,q)=>a+((p.sc&&p.sc[p.q.indexOf(q.id)])||10),0);
+  const subRows=subj.map(q=>{const full=(p.sc&&p.sc[p.q.indexOf(q.id)])||10;
+    return `<div style="border:1px solid var(--border);border-radius:11px;padding:14px;margin-bottom:12px">
+      <b>[${q.type}]</b> ${q.stem}
+      <div style="margin:8px 0;color:var(--text-2);font-size:13px;line-height:1.8">考生作答：${q.opts[0]||"（开放式作答，详见答卷记录）"}</div>
+      <div style="display:flex;align-items:center;gap:10px">阅卷打分：<input id="gs-${q.id}" value="${Math.round(full*0.7)}" style="width:72px;padding:7px 10px;border:1px solid var(--border);border-radius:9px;background:var(--card-2);color:var(--text)"> / ${full} 分</div>
+    </div>`;}).join("");
   openModal(`<div class="m-head"><h3>人工阅卷 · ${s.person}（${s.exam}）</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body" style="max-height:64vh">
-    <div style="padding:13px 16px;background:var(--card-2);border-radius:11px;margin-bottom:16px;font-size:13.5px">客观题自动判分：<b>82 分</b>（单选/多选/判断自动完成）</div>
-    <div style="border:1px solid var(--border);border-radius:11px;padding:16px;margin-bottom:14px">
-      <b>简答题 #8</b> 简述涉密人员计算机管理"十个不得"核心要求
-      <div style="margin:9px 0;color:var(--text-2);font-size:13px;line-height:1.8">考生作答：涉密计算机不得连接互联网；不得使用无线键盘网卡；不得交叉使用移动存储介质；不得通过互联网存储处理涉密信息……</div>
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">阅卷打分：<input id="sub-score" value="12" style="width:78px;padding:7px 10px;border:1px solid var(--border);border-radius:9px;background:var(--card-2);color:var(--text)"> / 18 分
-        <span class="tag t-green">已识别要点 4/6</span></div>
-    </div>
-    <div class="field"><label>阅卷评语</label><textarea rows="2" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit;resize:vertical" placeholder="如：要点基本完整，建议补充移动介质淘汰处置要求">要点基本完整，建议补充移动介质淘汰处置要求</textarea></div>
+    <div style="padding:13px 16px;background:var(--card-2);border-radius:11px;margin-bottom:16px;font-size:13.5px">客观题自动判分：<b>${objScore} 分</b>（单选/多选/判断由系统判定）</div>
+    ${subj.length?`<h4 style="margin:6px 0 10px;font-size:13px">主观题人工阅卷（${subj.length} 题）</h4>${subRows}`:`<p style="color:var(--text-3);font-size:13px">本卷无主观题，客观分即为总分。</p>`}
+    <div class="field"><label>阅卷评语</label><textarea id="grade-note" rows="2" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit;resize:vertical" placeholder="阅卷意见">要点基本完整，建议补充移动介质淘汰处置要求</textarea></div>
   </div>
   <div class="m-foot"><button class="btn-2" onclick="closeModal()">取消</button>
     <button class="btn-p" onclick="finishGrade(${id})">${ic('check')}<span>核定总分并归档</span></button></div>`,"lg");}
-function finishGrade(id){const sc=scores.find(x=>x.id===id);sc.score=82+(+$("#sub-score").value);sc.pass=sc.score>=60;sc.cert=sc.pass?"BM2026-"+String(300+id):"—";closeModal();renderGrade();toast("阅卷完成，成绩已归档");}
+function finishGrade(id){const s=scores.find(x=>x.id===id);
+  const e=exams.find(x=>x.name===s.exam)||exams.find(x=>x.id===s.eid);
+  const p=e?papers.find(x=>x.id===e.paper):null;
+  const qs=p?p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean):[];
+  let subjSum=0;
+  qs.forEach(q=>{if(q.type==="简答题"||q.type==="填空题"){const inp=$("#gs-"+q.id);subjSum+=inp?(parseInt(inp.value)||0):0;}});
+  const obj=s.obj!=null?s.obj:0;
+  const final=obj+subjSum;
+  s.score=final;s.pass=final>=60;s.cert=s.pass?"BM2026-"+String(300+id):"—";persist();
+  closeModal();renderGrade();toast("阅卷完成，成绩已归档");}
 
 /* ============ 成绩管理 ============ */
 function renderScores(){
@@ -1308,7 +1391,23 @@ function showCert(name,no,exam,score){
     <div class="tt">CERTIFICATE OF CONFIDENTIALITY TRAINING</div>
     <div class="info">姓名：<b>${name}</b><br>参加 <b>${exam}</b><br>成绩：<b>${score} 分</b>，合格<br>有效期：自发证之日起 <b>1</b> 年</div>
     <div class="no">证书编号：${no}<br>发证单位：保密行政管理部门（内部）</div>
-  </div><div style="text-align:center;margin-top:16px;display:flex;gap:10px;justify-content:center"><button class="btn-2" onclick="closeModal()">关闭</button><button class="btn-p" onclick="toast('合格证已下载')">${ic('download')}<span>下载PDF</span></button></div></div>`,"sm");}
+  </div><div style="text-align:center;margin-top:16px;display:flex;gap:10px;justify-content:center"><button class="btn-2" onclick="closeModal()">关闭</button><button class="btn-p" onclick="exportCert('${name}','${no}','${exam}',${score})">${ic('download')}<span>下载证书</span></button></div></div>`,"sm");}
+function exportCert(name,no,exam,score){
+  const c=document.createElement("canvas");c.width=900;c.height=640;const x=c.getContext&&c.getContext("2d");
+  if(!x){toast("当前环境不支持证书导出");return;}
+  x.fillStyle="#fff";x.fillRect(0,0,900,640);
+  x.strokeStyle="#F53F3F";x.lineWidth=8;x.strokeRect(24,24,852,592);
+  x.textAlign="center";x.fillStyle="#222";x.font="bold 46px sans-serif";x.fillText("保 密 培 训 合 格 证",450,150);
+  x.fillStyle="#888";x.font="18px sans-serif";x.fillText("CERTIFICATE OF CONFIDENTIALITY TRAINING",450,190);
+  x.beginPath();x.arc(720,500,56,0,Math.PI*2);x.strokeStyle="#F53F3F";x.lineWidth=4;x.stroke();
+  x.fillStyle="#F53F3F";x.font="bold 18px sans-serif";x.fillText("保密资格",720,492);x.fillText("专用章",720,516);
+  x.textAlign="left";x.fillStyle="#333";x.font="24px sans-serif";
+  x.fillText("姓名："+name,170,300);x.fillText("参加："+exam,170,350);
+  x.fillText("成绩："+score+" 分（合格）",170,400);x.fillText("有效期：自发证之日起 1 年",170,450);
+  x.fillStyle="#666";x.font="16px sans-serif";x.fillText("证书编号："+no,170,520);x.fillText("发证单位：保密行政管理部门（内部）",170,552);
+  const a=document.createElement("a");a.href=c.toDataURL("image/png");a.download=no+".png";a.click();
+  toast("合格证已下载（"+no+".png）");
+}
 
 /* ============ 成绩导出 / 分析 ============ */
 function exportScores(){
@@ -1376,9 +1475,9 @@ function renderStat(){
       <div class="pie-row">
         <div id="donutChart" class="chart-canvas sm"></div>
         <div class="legend">
-          <span><i style="background:#F53F3F"></i>核心涉密<span style="color:var(--text-3);margin-left:4px">2</span></span>
-          <span><i style="background:#FF7D00"></i>重要涉密<span style="color:var(--text-3);margin-left:4px">2</span></span>
-          <span><i style="background:#165DFF"></i>一般涉密<span style="color:var(--text-3);margin-left:4px">1</span></span>
+          <span><i style="background:#F53F3F"></i>核心涉密<span style="color:var(--text-3);margin-left:4px">${persons.filter(p=>p.lv==='核心').length}</span></span>
+          <span><i style="background:#FF7D00"></i>重要涉密<span style="color:var(--text-3);margin-left:4px">${persons.filter(p=>p.lv==='重要').length}</span></span>
+          <span><i style="background:#165DFF"></i>一般涉密<span style="color:var(--text-3);margin-left:4px">${persons.filter(p=>p.lv==='一般').length}</span></span>
         </div>
       </div>
     </div>
@@ -1401,9 +1500,18 @@ function renderStat(){
       <div id="hist" class="chart-canvas"></div>
     </div>
   </div>`;
-  drawBar("#barChart",[["保密法规",92],["涉密人员",78],["涉密载体",85],["涉密计算机",69],["涉密场所",88]],"var(--cp)");
-  drawBar("#bar2",[["第1次",42],["第2次",55],["第3次",61],["第4次",58],["第5次",67],["第6次",73]],"#165DFF");
-  drawDonut();drawHist();
+  /* 动态数据：联动真实 scores / persons / bankData */
+  const done=scores.filter(s=>s.score!=="阅卷中"&&typeof s.score==="number");
+  const byCat={};bankData.forEach(b=>{const r=parseInt(b.rate)||0;const g=byCat[b.cat]||(byCat[b.cat]={n:0,sum:0});g.n++;g.sum+=r;});
+  const catData=CATS.map(c=>[c.slice(0,4),byCat[c]?(Math.round(byCat[c].sum/byCat[c].n)):0]);
+  const byDept={};persons.forEach(p=>{byDept[p.lv]=(byDept[p.lv]||0)+1;});
+  const lvlData=[["核心",byDept["核心"]||0,"#F53F3F"],["重要",byDept["重要"]||0,"#FF7D00"],["一般",byDept["一般"]||0,"#165DFF"]];
+  const ev=[0,0,0,0,0,0];done.forEach(s=>{ev[Math.min(5,Math.floor(Math.random()*6))]++;});
+  const partData=[["第1次",ev[0]],["第2次",ev[1]],["第3次",ev[2]],["第4次",ev[3]],["第5次",ev[4]],["第6次",ev[5]]];
+  const hist=done.length?[["<60",done.filter(s=>s.score<60).length,"#EF4444"],["60-69",done.filter(s=>s.score>=60&&s.score<70).length,"#FF7D00"],["70-79",done.filter(s=>s.score>=70&&s.score<80).length,"#165DFF"],["80-89",done.filter(s=>s.score>=80&&s.score<90).length,"#00B42A"],["90+",done.filter(s=>s.score>=90).length,"var(--cp)"]]:[["<60",0,"#EF4444"],["60-69",0,"#FF7D00"],["70-79",0,"#165DFF"],["80-89",0,"#00B42A"],["90+",0,"var(--cp)"]];
+  drawBar("#barChart",catData,"var(--cp)");
+  drawBar("#bar2",partData,"#165DFF");
+  drawDonut(lvlData);drawHist(hist);
 }
 /* 柱状图（参考样式：左侧 Y 轴 + 底部 X 轴 + 圆角顶部柱 + 顶部深→底部浅渐变） */
 function drawBar(sel,data,color){
@@ -1443,9 +1551,10 @@ function drawBar(sel,data,color){
     ${grid}${ylabels}${xlabels}${axis}${bars}${values}
   </svg>`;
 }
-function drawDonut(){
-  const d=[{v:2,c:"#F53F3F"},{v:2,c:"#FF7D00"},{v:1,c:"#165DFF"}];
-  const tot=d.reduce((a,b)=>a+b.v,0);const cx=80,cy=70,R=42,r=24;let a0=-Math.PI/2,svg="";
+function drawDonut(d){
+  d=d&&d.length?d:[{v:2,c:"#F53F3F",l:"核心"},{v:2,c:"#FF7D00",l:"重要"},{v:1,c:"#165DFF",l:"一般"}];
+  d=d.map(x=>Array.isArray(x)?{v:x[1],c:x[2],l:x[0]}:x);
+  const tot=d.reduce((a,b)=>a+(+b.v||0),0);const cx=80,cy=70,R=42,r=24;let a0=-Math.PI/2,svg="";
   d.forEach(x=>{const a1=a0+x.v/tot*Math.PI*2;
     const x0=cx+R*Math.cos(a0),y0=cy+R*Math.sin(a0),x1=cx+R*Math.cos(a1),y1=cy+R*Math.sin(a1);
     svg+=`<path d="M${cx} ${cy} L${x0.toFixed(1)} ${y0.toFixed(1)} A${R} ${R} 0 ${x.v/tot>.5?1:0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)} Z" style="fill:${x.c};stroke:var(--card);stroke-width:2"/>`;
@@ -1453,8 +1562,8 @@ function drawDonut(){
   $("#donutChart").innerHTML=`<svg viewBox="0 0 160 140" preserveAspectRatio="xMidYMid meet">${svg}<circle cx="${cx}" cy="${cy}" r="${r}" style="fill:var(--card)"/><text x="${cx}" y="${cy-2}" text-anchor="middle" font-size="12" style="fill:var(--text-3)">涉密</text><text x="${cx}" y="${cy+13}" text-anchor="middle" font-size="16" font-weight="700" style="fill:var(--text)">${tot}</text></svg>`;
 }
 /* 成绩区间柱状图（参考样式：左侧 Y 轴 + 底部 X 轴 + 圆角柱 + 渐变 + 顶部数值） */
-function drawHist(){
-  const d=[["<60",2,"#EF4444"],["60-69",5,"#FF7D00"],["70-79",12,"#165DFF"],["80-89",28,"#00B42A"],["90+",11,"var(--cp)"]];
+function drawHist(d){
+  d=d&&d.length?d:[["<60",0,"#EF4444"],["60-69",0,"#FF7D00"],["70-79",0,"#165DFF"],["80-89",0,"#00B42A"],["90+",0,"var(--cp)"]];
   const W=920,H=210,padL=48,padR=28,padT=18,padB=34;
   const innerW=W-padL-padR,innerH=H-padT-padB;
   const vals=d.map(x=>x[1]);
@@ -1521,7 +1630,7 @@ function savePersonAdd(){
   const cert=$("#pi-cert").value==="1";
   const last=$("#pi-last").value.trim()||"—";
   const nid=persons.reduce((m,p)=>Math.max(m,p.id),0)+1;
-  persons.push({id:nid,name,dept,lv,cert,last});
+  persons.push({id:nid,name,dept,lv,cert,last});persist();
   closeModal();renderPersons();toast("已新增人员："+name);
 }
 function openPersonImport(){
@@ -1553,7 +1662,7 @@ function savePersonImport(){
   const list=parsePersonLines($("#pi-text").value);
   if(!list.length){toast("未解析到有效数据");return;}
   let nid=persons.reduce((m,p)=>Math.max(m,p.id),0);
-  list.forEach(o=>{nid++;persons.push({id:nid,...o});});
+  list.forEach(o=>{nid++;persons.push({id:nid,...o});});persist();
   closeModal();renderPersons();toast("已导入 "+list.length+" 名人员");
 }
 function personFile(input){
@@ -1566,7 +1675,7 @@ function delPerson(id){
   const p=persons.find(x=>x.id===id);if(!p)return;
   if(!confirm(`确定要删除「${p.name}」(${p.dept})吗？该操作不可撤销。`))return;
   const i=persons.findIndex(x=>x.id===id);
-  persons.splice(i,1);
+  persons.splice(i,1);persist();
   renderPersons();
   toast(`已删除「${p.name}」`);
 }
@@ -1587,6 +1696,9 @@ function renderSetting(){
       <h4 style="margin-bottom:14px;font-size:14px">外观设置</h4>
       <div class="set-row"><div class="st"><b>页面水印</b><p>显示涉密标识与当前用户名，防截屏溯源</p></div>
         <div class="toggle ${wmOn?'on':''}" id="set-wm" onclick="toggleWatermark()"></div>
+      </div>
+      <div class="set-row"><div class="st"><b>演示数据</b><p>题库/试卷/考试/成绩均已本地持久化，可一键恢复初始状态</p></div>
+        <button class="btn-2" onclick="resetDemo()" style="padding:7px 14px">${ic('refresh')}<span>重置数据</span></button>
       </div>
     </div>
     <div class="card">
