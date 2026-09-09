@@ -257,6 +257,27 @@ tbody tr:hover{background:var(--hover)}
 .f-row{display:flex;gap:14px;margin-bottom:18px;flex-wrap:wrap}
 .f-row .field{flex:1;margin-bottom:0;min-width:200px}
 .f-row .field.full{flex-basis:100%}
+
+/* 智能组卷 */
+.cp-head{margin-bottom:18px;padding-bottom:6px;border-bottom:1px dashed var(--border)}
+.cp-h-row{display:flex;gap:14px;margin-bottom:12px}
+.cp-h-field{flex:1;min-width:200px}
+.cp-h-field label{display:block;font-size:12.5px;color:var(--text-2);margin-bottom:6px;font-weight:500}
+.cp-h-field input,.cp-h-field select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-size:13px;font-family:inherit}
+.cp-types{display:flex;flex-direction:column;gap:14px;margin-bottom:14px}
+.cp-row{padding:14px 0;border-bottom:1px dashed var(--border-2)}
+.cp-row:last-child{border-bottom:none}
+.cp-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px}
+.cp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cp-fld label,.cp-fld span{display:block;font-size:11.5px;color:var(--text-2);margin-bottom:6px}
+.cp-fld input,.cp-fld select{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:9px;background:var(--card-2);color:var(--text);font-size:13px;font-family:inherit}
+.cp-fld.cp-diff{grid-column:3}
+.cp-sum{padding:14px 18px;background:linear-gradient(90deg,#E8F1FF 0%,#EEF3FF 100%);border-radius:10px;color:#165DFF;font-size:14px;display:flex;align-items:center;gap:10px;margin-top:6px}
+.cp-sum b{font-size:18px;font-weight:700}
+.cp-sum .cp-hint{margin-left:auto;font-size:12px;color:var(--text-3)}
+.cp-go{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9px;background:var(--success);color:#fff;border:none;font-size:13px;font-weight:500;cursor:pointer;transition:opacity .15s;font-family:inherit}
+.cp-go:hover{opacity:.9}
+.cp-go svg{width:14px;height:14px}
 .opt-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
 .opt-row input[type=text]{flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:9px;background:var(--card-2);color:var(--text)}
 .opt-row .rk{width:26px;height:26px;border-radius:7px;background:var(--card-3);display:flex;
@@ -381,6 +402,13 @@ td .num,.num{font-variant-numeric:tabular-nums}
 .notice .ni:last-child{border-bottom:none}
 .notice .ni .dt{margin-left:auto;color:var(--text-3);font-size:11.5px;white-space:nowrap}
 .empty{padding:40px;text-align:center;color:var(--text-3);font-size:13px}
+.pager{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px 16px;border-top:1px solid var(--border-2);background:var(--card-2)}
+.pager .pg-info{font-size:12.5px;color:var(--text-3);margin-right:auto}
+.pager .pg-btn{padding:6px 12px;border:1px solid var(--border);background:var(--card);color:var(--text-2);border-radius:8px;font-size:12.5px;cursor:pointer;transition:.15s;font-family:inherit}
+.pager .pg-btn:hover:not(:disabled){border-color:var(--cp);color:var(--cp)}
+.pager .pg-btn.on{background:var(--cp);border-color:var(--cp);color:#fff}
+.pager .pg-btn:disabled{opacity:.45;cursor:not-allowed}
+.pager .pg-ell{color:var(--text-3);font-size:13px;padding:0 2px}
 .toggle{position:relative;width:44px;height:24px;background:var(--card-3);border-radius:20px;transition:.2s;flex:none;cursor:pointer;border:1px solid var(--border)}
 .toggle.on{background:var(--cp)}
 .toggle::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;
@@ -391,6 +419,97 @@ td .num,.num{font-variant-numeric:tabular-nums}
 .set-row .st{flex:1}
 .set-row .st b{font-size:14px;font-weight:600}
 .set-row .st p{font-size:12px;color:var(--text-3);margin-top:2px}
+
+/* 时间选择器（datetime-local 视觉统一） */
+.f-time{width:100%;padding:9px 12px 9px 36px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-size:13px;font-family:inherit;transition:border-color .15s,box-shadow .15s;position:relative}
+.f-time:hover{border-color:var(--cp)}
+.f-time:focus{outline:none;border-color:var(--cp);box-shadow:0 0 0 3px rgba(245,63,63,.12)}
+.f-time-wrap{position:relative}
+.f-time-wrap::before{content:"";position:absolute;left:12px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F53F3F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg>") center/contain no-repeat;pointer-events:none;z-index:1}
+.f-time-wrap .quick{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.f-time-wrap .quick span{font-size:11.5px;padding:4px 10px;border-radius:6px;background:var(--card-3);color:var(--text-2);cursor:pointer;border:1px solid var(--border);transition:all .12s}
+.f-time-wrap .quick span:hover{background:var(--cp-bg);color:var(--cp);border-color:var(--cp)}
+
+/* 人员多选面板 */
+.pp{width:100%;border:1px solid var(--border);border-radius:12px;background:var(--card-2);overflow:hidden}
+.pp-head{padding:11px 13px;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:center;background:var(--card-3);flex-wrap:wrap}
+.pp-search{flex:1;min-width:140px;display:flex;align-items:center;gap:6px;padding:6px 10px;background:var(--card);border:1px solid var(--border);border-radius:8px;transition:border-color .12s}
+.pp-search:focus-within{border-color:var(--cp)}
+.pp-search svg{width:13px;height:13px;color:var(--text-3);flex-shrink:0}
+.pp-search input{flex:1;border:none;background:transparent;outline:none;font-size:12.5px;color:var(--text);font-family:inherit}
+.pp-tags{display:flex;align-items:center;gap:5px;flex-wrap:wrap;max-width:100%}
+.pp-tag{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;padding:3px 8px;border-radius:6px;background:var(--cp-bg);color:var(--cp);font-weight:500}
+.pp-tag i{cursor:pointer;opacity:.7;font-style:normal;width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%}
+.pp-tag i:hover{opacity:1;background:rgba(245,63,63,.18)}
+.pp-foot{padding:8px 13px;border-top:1px solid var(--border);background:var(--card-3);display:flex;align-items:center;gap:10px;font-size:11.5px;color:var(--text-3);flex-wrap:wrap}
+.pp-foot b{color:var(--cp);font-weight:600}
+.pp-foot .acts{margin-left:auto;display:flex;gap:5px}
+.pp-foot .acts span{font-size:11.5px;padding:4px 10px;border-radius:6px;cursor:pointer;color:var(--text-2);transition:all .12s;border:1px solid transparent}
+.pp-foot .acts span:hover{background:var(--cp-bg);color:var(--cp);border-color:var(--cp)}
+.pp-body{max-height:240px;overflow-y:auto;padding:4px 0}
+.pp-group{border-bottom:1px solid var(--border-2)}
+.pp-group:last-child{border-bottom:none}
+.pp-ghead{padding:8px 13px;display:flex;align-items:center;gap:8px;background:var(--card-3);position:sticky;top:0;z-index:1}
+.pp-ghead b{font-size:12px;font-weight:600;color:var(--text-2)}
+.pp-ghead .cnt{font-size:11px;color:var(--text-3);margin-left:auto}
+.pp-ghead .all{font-size:11px;color:var(--cp);cursor:pointer;padding:3px 8px;border-radius:6px;transition:background .12s}
+.pp-ghead .all:hover{background:var(--cp-bg)}
+.pp-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;background:var(--border-2);padding:1px}
+.pp-row{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--card-2);cursor:pointer;transition:background .12s;font-size:12.5px}
+.pp-row:hover{background:var(--card-3)}
+.pp-row.on{background:var(--cp-bg)}
+.pp-row.on .pp-name{color:var(--cp);font-weight:600}
+.pp-av{width:24px;height:24px;border-radius:50%;background:var(--cp-bg);color:var(--cp);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0}
+.pp-row.on .pp-av{background:var(--cp);color:#fff}
+.pp-info{flex:1;min-width:0;overflow:hidden}
+.pp-name{font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pp-dept{font-size:10.5px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pp-row .lv-tag{font-size:10px;padding:1px 6px;border-radius:4px;background:var(--card-3);color:var(--text-3);flex-shrink:0}
+.pp-row.on .lv-tag{background:rgba(245,63,63,.15);color:var(--cp)}
+.pp-row .chk{width:15px;height:15px;border:1.5px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s;background:var(--card)}
+.pp-row.on .chk{background:var(--cp);border-color:var(--cp)}
+.pp-row.on .chk::after{content:"";width:8px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+
+/* 在线阅卷整页 */
+.gp-layout{display:grid;grid-template-columns:220px 1fr 240px;gap:14px;min-height:560px;margin-bottom:14px}
+.gp-side{background:var(--card);border:1px solid var(--border);border-radius:12px;display:flex;flex-direction:column;overflow:hidden}
+.gp-side-h{padding:13px 16px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;background:var(--card-3);color:var(--text-2)}
+.gp-side-list{flex:1;overflow-y:auto;padding:6px 0}
+.gp-ppl{padding:11px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border-left:3px solid transparent;transition:background .12s}
+.gp-ppl:hover{background:var(--card-3)}
+.gp-ppl.on{background:var(--cp-bg);border-left-color:var(--cp)}
+.gp-ppl-name{font-size:13px;font-weight:500;color:var(--text)}
+.gp-ppl.on .gp-ppl-name{color:var(--cp);font-weight:600}
+.gp-main{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;overflow-y:auto;max-height:70vh}
+.gp-card{border:1px solid var(--border);border-radius:11px;padding:16px 18px;margin-bottom:14px;background:var(--card-2)}
+.gp-card:last-child{margin-bottom:0}
+.gp-qhead{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px}
+.gp-qhead .gp-pt{color:var(--cp);font-weight:500;font-size:12px;margin-left:6px}
+.gp-qstem{font-size:13.5px;line-height:1.8;color:var(--text);margin-bottom:12px}
+.gp-qsec{margin-bottom:10px}
+.gp-qsec b{font-size:12.5px;color:var(--text-2);font-weight:500;display:block;margin-bottom:5px}
+.gp-qsec .gp-qans,.gp-qsec .gp-qref{padding:10px 12px;background:var(--card);border:1px dashed var(--border);border-radius:8px;font-size:13px;color:var(--text);line-height:1.8;min-height:24px;white-space:pre-wrap}
+.gp-qsec details summary{cursor:pointer;color:var(--cp);font-size:12px;user-select:none;list-style:none;padding:4px 0}
+.gp-qsec details summary::before{content:"▼";margin-right:4px;font-size:9px;transition:transform .15s;display:inline-block}
+.gp-qsec details[open] summary::before{transform:rotate(180deg)}
+.gp-qscore{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12.5px;color:var(--text-2)}
+.gp-qscore input[type=number]{width:90px;padding:6px 9px;border:1px solid var(--border);border-radius:7px;background:var(--card);color:var(--text);font-size:13px;font-family:inherit;margin-left:auto}
+.gp-qscore textarea{flex:1;padding:6px 10px;border:1px solid var(--border);border-radius:7px;background:var(--card);color:var(--text);font-size:13px;font-family:inherit;min-height:36px;resize:vertical}
+.gp-sum{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.gp-sum-block{display:flex;flex-direction:column;gap:12px}
+.gp-sum-h{font-size:14px;font-weight:600;color:var(--text);padding-bottom:10px;border-bottom:1px solid var(--border)}
+.gp-sum-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-2);padding-bottom:10px;border-bottom:1px dashed var(--border)}
+.gp-sum-row:last-of-type{border-bottom:none;padding-bottom:0}
+.gp-sum-row b{font-size:16px;color:var(--text);font-weight:600}
+.gp-sum-row:nth-child(2) b{color:var(--cp)}
+.gp-total{color:var(--cp)!important;font-size:24px!important;font-weight:700!important}
+.gp-sum-actions{margin-top:auto;display:flex;flex-direction:column;gap:6px}
+.gp-foot{display:flex;align-items:center;gap:14px;padding:14px 0;justify-content:center;border-top:1px solid var(--border)}
+.gp-foot .btn-2{display:inline-flex;align-items:center;gap:5px}
+.gp-foot .btn-2:first-child{margin-right:auto}
+.gp-foot .btn-2:last-child{margin-left:auto}
+.gp-foot-tip{color:var(--text-3);font-size:12.5px}
+
 .toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:var(--card);
   color:var(--text);padding:11px 20px;border-radius:11px;z-index:80;
   box-shadow:var(--shadow-lg);font-size:13px;border:1px solid var(--border);
@@ -562,7 +681,7 @@ const bankData=[
   {id:5,type:"判断题",cat:"涉密计算机信息系统",lv:"机密",diff:"难",stem:"涉密计算机信息系统可以与国际互联网实行逻辑隔离后连接。",opts:["正确","错误"],ans:[1],rate:"69%"},
   {id:6,type:"单选题",cat:"涉密计算机信息系统",lv:"机密",diff:"难",stem:"存储国家秘密信息的移动存储介质只能在()计算机上使用。",opts:["本单位同一密级或更高密级的涉密","办公用","上网用"],ans:[0],rate:"81%"},
   {id:7,type:"填空题",cat:"涉密载体管理",lv:"秘密",diff:"中",stem:"复制属于国家秘密的文件、资料，()原件的密级、保密期限和知悉范围。",opts:["不得擅自改变"],ans:[0],rate:"—"},
-  {id:8,type:"简答题",cat:"涉密人员管理",lv:"秘密",diff:"难",stem:"简述涉密人员计算机管理'十个不得'中至少三项核心要求。",opts:[],ans:[],rate:"—"},
+  {id:8,type:"问答题",cat:"涉密人员管理",lv:"秘密",diff:"难",stem:"简述涉密人员计算机管理'十个不得'中至少三项核心要求。",opts:["一是不得将涉密计算机与互联网及其他公共信息网络连接；二是不得在涉密计算机与非涉密计算机之间交叉使用移动存储介质；三是不得在非涉密计算机、非涉密存储介质上存储、处理涉密信息；四是不得擅自卸载涉密计算机保密技术防护专用软件。"],ans:[],rate:"—"},
   {id:9,type:"单选题",cat:"涉密场所与会议",lv:"秘密",diff:"易",stem:"销毁秘密文件、资料要履行()手续，并由两名以上工作人员监销。",opts:["清点","交接","审批、登记"],ans:[2],rate:"90%"},
   {id:10,type:"多选题",cat:"涉密计算机信息系统",lv:"机密",diff:"难",stem:"涉密信息处理场所应当采取哪些保密措施？",opts:["定期进行保密技术检查","配备监控报警","禁止无关人员进入","使用无线网卡便于管理"],ans:[0,1,2],rate:"72%"},
   {id:11,type:"单选题",cat:"涉密人员管理",lv:"秘密",diff:"易",stem:"涉密人员离岗离职时，应当清退所保管的()。",opts:["涉密文件资料与载体","所有办公用品","个人物品"],ans:[0],rate:"85%"},
@@ -573,39 +692,37 @@ const bankData=[
   {id:16,type:"判断题",cat:"保密法律法规",lv:"秘密",diff:"中",stem:"非涉密人员可以偶尔处理一般商业秘密。",opts:["正确","错误"],ans:[1],rate:"75%"},
   {id:17,type:"填空题",cat:"涉密人员管理",lv:"机密",diff:"中",stem:"涉密岗位工作人员的保密承诺书应当()签订一次。",opts:["每年"],ans:[0],rate:"—"},
   {id:18,type:"填空题",cat:"涉密载体管理",lv:"秘密",diff:"易",stem:"传递国家秘密载体应当通过()方式进行。",opts:["机要通信或专人护送"],ans:[0],rate:"—"},
-  {id:19,type:"简答题",cat:"涉密计算机信息系统",lv:"机密",diff:"难",stem:"简述涉密计算机信息系统'三权分立'的具体内容。",opts:[],ans:[],rate:"—"},
-  {id:20,type:"简答题",cat:"涉密场所与会议",lv:"秘密",diff:"中",stem:"简述召开涉密会议的主要保密要求。",opts:[],ans:[],rate:"—"},
+  {id:19,type:"问答题",cat:"涉密计算机信息系统",lv:"机密",diff:"难",stem:"简述涉密计算机信息系统'三权分立'的具体内容。",opts:["系统管理员、安全保密管理员、安全审计员'三员'分立管理，三权分离、相互制约：系统管理员负责系统日常运行维护与资源管理；安全保密管理员负责安全保密策略配置、账户与权限管理；安全审计员负责对系统操作行为进行独立审计监督，三个岗位不得相互兼任。"],ans:[],rate:"—"},
+  {id:20,type:"问答题",cat:"涉密场所与会议",lv:"秘密",diff:"中",stem:"简述召开涉密会议的主要保密要求。",opts:["一是涉密会议应当在具备保密条件的场所召开；二是严格控制参会人员范围并履行保密审批手续；三是对会场进行保密技术检查，手机等无线设备统一集中存放；四是会议文件资料统一编号、登记发放、会后清点收回；五是会议内容不得擅自记录、传播。"],ans:[],rate:"—"},
 ];
 const papers=[
-  {id:1,name:"涉密人员上岗必考题(2026版)",total:100,dur:60,lv:"秘密",status:"已发布",q:[1,2,3,4,5,6,9],sc:[15,15,15,15,10,10,20]},
-  {id:2,name:"核心涉密人员年度复训卷",total:100,dur:90,lv:"机密",status:"草稿",q:[3,5,6,8,10],sc:[20,20,20,20,20]},
-  {id:3,name:"保密法律法规专项测试",total:60,dur:45,lv:"秘密",status:"已发布",q:[1,2,9],sc:[20,20,20]},
-  /* 按题型划分的专项卷（在线考试可分别进入） */
-  {id:4,name:"单选题专项测试卷",total:70,dur:45,lv:"秘密",status:"已发布",q:[1,2,3,6,9,11,12],sc:[10,10,10,10,10,10,10]},
-  {id:5,name:"多选题专项测试卷",total:60,dur:40,lv:"秘密",status:"已发布",q:[4,10,13,14],sc:[15,15,15,15]},
-  {id:6,name:"判断题专项测试卷",total:60,dur:30,lv:"秘密",status:"已发布",q:[5,15,16],sc:[20,20,20]},
-  {id:7,name:"填空题专项测试卷",total:60,dur:40,lv:"秘密",status:"已发布",q:[7,17,18],sc:[20,20,20]},
-  {id:8,name:"简答题专项测评卷",total:90,dur:60,lv:"机密",status:"已发布",q:[8,19,20],sc:[30,30,30]},
-  {id:9,name:"综合题型演练卷",total:80,dur:90,lv:"秘密",status:"已发布",q:[1,4,5,7,8,13,16,19],sc:[10,10,10,10,10,10,10,10]},
+  {id:1,name:"涉密人员上岗必考题(2026版)",total:100,dur:60,lv:"秘密",status:"已发布",q:[1,2,3,4,5,6,9,8,19,20],sc:[10,10,10,10,10,10,10,10,10,10]},
+  {id:2,name:"核心涉密人员年度复训卷",total:100,dur:90,lv:"机密",status:"草稿",q:[3,5,6,8,10]},
+  {id:3,name:"保密法律法规专项测试",total:60,dur:45,lv:"秘密",status:"已发布",q:[1,2,9]},
 ];
 const exams=[
   {id:1,name:"2026年度全员保密教育考试",paper:1,range:"全体涉密人员",start:"2026-09-10 09:00",end:"2026-09-20 18:00",status:"未开始",anti:{sw:3,cam:true,copy:true,rand:false}},
   {id:2,name:"新入职人员保密上岗考试",paper:3,range:"2026年新入职涉密人员",start:"2026-09-08 14:00",end:"2026-09-08 17:00",status:"进行中",anti:{sw:2,cam:false,copy:true,rand:true}},
   {id:3,name:"核心人员年度复训考核",paper:2,range:"核心涉密人员",start:"2026-08-20 09:00",end:"2026-08-25 18:00",status:"已结束",anti:{sw:1,cam:true,copy:true,rand:false}},
-  /* 题型专项考试 */
-  {id:4,name:"单选题专项测验",paper:4,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:3,cam:false,copy:true,rand:false}},
-  {id:5,name:"多选题专项测验",paper:5,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:3,cam:false,copy:true,rand:false}},
-  {id:6,name:"判断题专项测验",paper:6,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:2,cam:false,copy:false,rand:false}},
-  {id:7,name:"填空题专项测验",paper:7,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:3,cam:false,copy:false,rand:false}},
-  {id:8,name:"简答题专项测评",paper:8,range:"核心涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:2,cam:true,copy:false,rand:false}},
-  {id:9,name:"综合题型演练测验",paper:9,range:"全体涉密人员",start:"2026-09-09 09:00",end:"2026-09-30 18:00",status:"进行中",anti:{sw:5,cam:true,copy:true,rand:true}},
 ];
 const scores=[
   {id:1,exam:"新入职人员保密上岗考试",person:"李晓明",dept:"办公室",score:94,pass:true,cert:"BM2026-0281"},
   {id:2,exam:"新入职人员保密上岗考试",person:"王海",dept:"信息中心",score:88,pass:true,cert:"BM2026-0282"},
   {id:3,exam:"核心人员年度复训考核",person:"张伟",dept:"保密处",score:71,pass:true,cert:"BM2026-0190"},
   {id:4,exam:"核心人员年度复训考核",person:"陈静",dept:"档案室",score:58,pass:false,cert:"—"},
-  {id:5,exam:"2026年度全员保密教育考试",person:"刘洋",dept:"科研所",obj:82,score:"阅卷中",pass:null,cert:"—"},
+  {id:5,exam:"2026年度全员保密教育考试",person:"刘洋",dept:"科研所",obj:62,score:"阅卷中",pass:null,cert:"—",
+    ans:{8:"一是未将涉密计算机连接互联网；二是未交叉使用移动存储介质；三是按要求使用了保密技术防护软件。",19:"系统管理员负责日常运维，安全保密管理员负责策略与权限配置，安全审计员负责独立审计。",20:"在保密场所召开、手机统一存放、文件会后收回。"}},
+  {id:6,exam:"2026年度全员保密教育考试",person:"李晓明",dept:"办公室",obj:66,score:96,pass:true,cert:"BM2026-0315",
+    grade:{8:10,19:10,20:10,"8c":"要点齐全，表述规范。","19c":"三权分离阐述清楚。","20c":"回答完整。"},
+    ans:{8:"不得将涉密计算机连接互联网；不得交叉使用移动存储介质；不得擅自卸载防护软件。",19:"三员分立：系统管理员、安全保密管理员、安全审计员，三权分离、相互制约。",20:"保密场所召开、控制参会范围、文件统一编号发放登记收回。"}},
+  {id:7,exam:"2026年度全员保密教育考试",person:"王海",dept:"信息中心",obj:60,score:84,pass:true,cert:"BM2026-0316",
+    grade:{8:8,19:8,20:8,"8c":"基本完整。","19c":"可以。","20c":"尚可。"},
+    ans:{8:"不连互联网、不交叉使用U盘、安装防护软件。",19:"系统管理员、安全保密管理员、审计员分开，不能兼任。",20:"保密场所、手机收起来、文件登记收回。"}},
+  {id:8,exam:"2026年度全员保密教育考试",person:"张伟",dept:"保密处",obj:58,score:"复核中",pass:null,cert:"—",
+    grade:{8:9,19:7,"8c":"缺第四项，其余正确。","19c":"补充审计监督内容。"},
+    ans:{8:"一是不得连接互联网，二是不得交叉使用存储介质，三是不得卸载防护软件，四是不得在非涉密计算机上处理涉密信息。",19:"系统管理员管运维、保密管理员管策略权限、审计员管监督。",20:"（未作答）"}},
+  {id:9,exam:"2026年度全员保密教育考试",person:"陈静",dept:"档案室",obj:55,score:"阅卷中",pass:null,cert:"—",
+    ans:{8:"不得将涉密计算机联网，不得交叉使用移动存储介质。",19:"（未作答）",20:"会议在保密场所召开，文件会后收回。"}},
 ];
 const persons=[
   {id:1,name:"李晓明",dept:"办公室",lv:"一般",cert:true,last:"新入职上岗考试 94"},
@@ -647,6 +764,35 @@ const scoreCell=s=>{if(s==='阅卷中')return '<span class="tag t-amber"><i clas
 function openModal(html,cls){$("#modal").className="modal "+(cls||"");$("#modal").innerHTML=html;$("#mask").classList.add("show");}
 function closeModal(){$("#mask").classList.remove("show");}
 $("#mask").addEventListener("click",e=>{if(e.target.id==="mask")closeModal();});
+
+/* ============ 列表分页（每页 10 条） ============ */
+let bankPage=1,paperPage=1,examPage=1,gradePage=1,scorePage=1,personPage=1;
+const PAGE_SIZE=10;
+function paginate(arr,page,size){const total=arr.length,pages=Math.max(1,Math.ceil(total/size));const p=Math.min(Math.max(1,page),pages);const start=(p-1)*size;return {items:arr.slice(start,start+size),total,pages,page:p};}
+function buildPager(total,page,size,view){
+  const pages=Math.max(1,Math.ceil(total/size));
+  if(pages<=1)return "";
+  let html='<div class="pager">';
+  html+='<span class="pg-info">共 '+total+' 条 · 第 '+page+'/'+pages+' 页</span>';
+  html+='<button class="pg-btn" '+(page<=1?'disabled':'')+' onclick="gotoPage(\''+view+'\',1)">首页</button>';
+  html+='<button class="pg-btn" '+(page<=1?'disabled':'')+' onclick="gotoPage(\''+view+'\','+(page-1)+')">上一页</button>';
+  const win=2;let from=Math.max(1,page-win),to=Math.min(pages,page+win);
+  if(from>1)html+='<span class="pg-ell">…</span>';
+  for(let i=from;i<=to;i++)html+='<button class="pg-btn '+(i===page?'on':'')+'" onclick="gotoPage(\''+view+'\','+i+')">'+i+'</button>';
+  if(to<pages)html+='<span class="pg-ell">…</span>';
+  html+='<button class="pg-btn" '+(page>=pages?'disabled':'')+' onclick="gotoPage(\''+view+'\','+(page+1)+')">下一页</button>';
+  html+='<button class="pg-btn" '+(page>=pages?'disabled':'')+' onclick="gotoPage(\''+view+'\','+pages+')">末页</button>';
+  html+='</div>';
+  return html;
+}
+function gotoPage(view,page){
+  if(view==='bank'){bankPage=page;renderBank();}
+  else if(view==='paper'){paperPage=page;renderPapers();}
+  else if(view==='exam'){examPage=page;renderExams();}
+  else if(view==='grade'){gradePage=page;renderGrade();}
+  else if(view==='score'){scorePage=page;renderScores();}
+  else if(view==='person'){personPage=page;renderPersons();}
+}
 
 /* ============ 主题/水印 ============ */
 function applyTheme(){document.body.setAttribute("data-cp",curTheme);$("#app").setAttribute("data-cp",curTheme);}
@@ -794,8 +940,8 @@ function renderDashboard(){
      subs:[{v:pending,l:'待审'},{v:0,l:'复审中'},{v:gradedN,l:'已归档'}]},
   ];
   const tc={};bankData.forEach(b=>tc[b.type]=(tc[b.type]||0)+1);
-  const ti={'单选题':'checkCircle','多选题':'checkCircle','判断题':'checkCircle','填空题':'pen','简答题':'fileText'};
-  const tcol={'单选题':'var(--cp)','多选题':'var(--purple)','判断题':'var(--sky)','填空题':'var(--warn)','简答题':'var(--success)'};
+  const ti={'单选题':'checkCircle','多选题':'checkCircle','判断题':'checkCircle','填空题':'pen','问答题':'fileText','简答题':'fileText'};
+  const tcol={'单选题':'var(--cp)','多选题':'var(--purple)','判断题':'var(--sky)','填空题':'var(--warn)','问答题':'var(--success)','简答题':'var(--success)'};
   const pills=Object.keys(tc).map(t=>`<div class="pill">${ic(ti[t]||'checkCircle')}<span style="color:${tcol[t]||'var(--cp)'}">${t}</span><b>${tc[t]}</b></div>`).join("");
   const cards=KPI.map(k=>`<div class="stat" style="--sc:${k.c};--sc-bg:${k.cbg}">
     <div class="stat-head">
@@ -930,38 +1076,38 @@ let bankFilter={kw:"",type:"全部",cat:"全部"};
 function renderBank(){
   const types=["全部",...new Set(bankData.map(b=>b.type))];
   const cats=["全部",...CATS];
-  const rows=bankData.filter(b=>(!bankFilter.kw||b.stem.includes(bankFilter.kw))&&(bankFilter.type==="全部"||b.type===bankFilter.type)&&(bankFilter.cat==="全部"||b.cat===bankFilter.cat));
-  const tr=rows.map(b=>`<tr><td>#${b.id}</td><td style="max-width:360px;white-space:normal">${b.stem.slice(0,40)}…</td>
-    <td><span class="tag t-blue">${b.type}</span></td><td>${b.cat}</td><td>${lvTag(b.lv)}</td><td>${diffTag(b.diff)}</td>
-    <td>${rateCell(b.rate)}</td><td><div class="row-act"><span class="act-v" onclick="editQ(${b.id})">编辑</span><span class="act-c" onclick="previewQ(${b.id})">预览</span><span class="act-d" onclick="delQ(${b.id})">删除</span></div></td></tr>`).join("");
+  const allRows=bankData.filter(b=>(!bankFilter.kw||b.stem.includes(bankFilter.kw))&&(bankFilter.type==="全部"||b.type===bankFilter.type)&&(bankFilter.cat==="全部"||b.cat===bankFilter.cat));
+  const pg=paginate(allRows,bankPage,PAGE_SIZE);
+  const tr=pg.items.map(b=>`<tr><td>#${b.id}</td><td style="max-width:360px;white-space:normal">${b.stem.slice(0,40)}…</td>
+    <td><span class="tag t-blue">${b.type}</span></td><td>${b.cat}</td><td>${diffTag(b.diff)}</td>
+    <td><div class="row-act"><span class="act-v" onclick="editQ(${b.id})">编辑</span><span class="act-c" onclick="previewQ(${b.id})">预览</span><span class="act-d" onclick="delQ(${b.id})">删除</span></div></td></tr>`).join("");
   $("#v-bank").innerHTML=`
-  <div class="page-head"><h2>题库管理</h2><span class="sub">共 ${bankData.length} 题 · 支持单/多/判/填/简五种题型</span><div class="spacer"></div>
+  <div class="page-head"><h2>题库管理</h2><span class="sub">共 ${bankData.length} 题 · 支持单/多/判/填/问五种题型</span><div class="spacer"></div>
     <button class="btn-2" onclick="openBankImport()">${ic('upload')}<span>批量导入</span></button>
     <button class="btn-2" onclick="exportBank()">${ic('download')}<span>导出题库</span></button>
     <button class="btn-p" onclick="addQ()">${ic('plus')}<span>新增试题</span></button></div>
   <div class="card">
     <div class="toolbar">
       <input placeholder="搜索题干" id="bk-kw" value="${bankFilter.kw}">
-      <select id="bk-type">${types.map(t=>`<option ${bankFilter.type===t?'selected':''}>${t}</option>`).join("")}</select>
-      <select id="bk-cat">${cats.map(c=>`<option ${bankFilter.cat===c?'selected':''}>${c}</option>`).join("")}</select>
+      <select id="bk-type" title="题型"><option value="">题型</option>${types.filter(t=>t!=="全部").map(t=>`<option ${bankFilter.type===t?'selected':''} value="${t}">${t}</option>`).join("")}</select>
+      <select id="bk-cat" title="分类"><option value="">分类</option>${cats.filter(c=>c!=="全部").map(c=>`<option ${bankFilter.cat===c?'selected':''} value="${c}">${c}</option>`).join("")}</select>
       <button class="btn-2" onclick="applyBank()">${ic('filter')}<span>筛选</span></button>
-      <button class="btn-2" onclick="renderBank()">${ic('refresh')}<span>重置</span></button>
+      <button class="btn-2" onclick="bankPage=1;renderBank()">${ic('refresh')}<span>重置</span></button>
     </div>
-    <div class="tbl-wrap"><table><thead><tr><th>ID</th><th>题干</th><th>题型</th><th>分类</th><th>密级</th><th>难度</th><th>正确率</th><th>操作</th></tr></thead>
-    <tbody>${tr||'<tr><td colspan="8" class="empty">无匹配试题</td></tr>'}</tbody></table></div>
+    <div class="tbl-wrap"><table><thead><tr><th>ID</th><th>题干</th><th>题型</th><th>分类</th><th>难度</th><th>操作</th></tr></thead>
+    <tbody>${tr||'<tr><td colspan="6" class="empty">无匹配试题</td></tr>'}</tbody></table></div>${buildPager(pg.total,pg.page,PAGE_SIZE,'bank')}
   </div>`;
 }
-function applyBank(){bankFilter.kw=$("#bk-kw").value;bankFilter.type=$("#bk-type").value;bankFilter.cat=$("#bk-cat").value;renderBank();}
+function applyBank(){bankFilter.kw=$("#bk-kw").value;bankFilter.type=$("#bk-type").value||"全部";bankFilter.cat=$("#bk-cat").value||"全部";bankPage=1;renderBank();}
 function qModal(title,data){
   const d=data||{type:"单选题",cat:CATS[0],lv:"秘密",diff:"易",stem:"",opts:["","",""],ans:[0],analysis:""};
-  const types=["单选题","多选题","判断题","填空题","简答题"];
+  const types=["单选题","多选题","判断题","填空题","问答题"];
   openModal(`<div class="m-head"><h3>${title}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body">
     <div class="tabs" id="qtype">${types.map(t=>`<button class="${t===d.type?'on':''}" onclick="qType('${t}')">${t}</button>`).join("")}</div>
     <div class="f-row"><div class="field full"><label>题干</label><textarea id="q-stem" rows="3" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit;resize:vertical">${d.stem}</textarea></div></div>
     <div class="f-row">
       <div class="field"><label>分类</label><select id="q-cat" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)">${CATS.map(c=>`<option ${c===d.cat?'selected':''}>${c}</option>`).join("")}</select></div>
-      <div class="field"><label>密级</label><select id="q-lv" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"><option ${d.lv==='秘密'?'selected':''}>秘密</option><option ${d.lv==='机密'?'selected':''}>机密</option><option ${d.lv==='内部'?'selected':''}>内部</option></select></div>
       <div class="field"><label>难度</label><select id="q-diff" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)">${["易","中","难"].map(x=>`<option ${x===d.diff?'selected':''}>${x}</option>`).join("")}</select></div>
     </div>
     <div id="q-opts"></div>
@@ -973,10 +1119,20 @@ function qModal(title,data){
 function qType(t){window._qtype=t;$$("#qtype button").forEach(b=>b.classList.toggle("on",b.textContent===t));renderQOpts();}
 function renderQOpts(d){
   const t=window._qtype;let html="";
-  if(t==="简答题"){html=`<div class="field"><label>参考答案（阅卷参考）</label><textarea rows="3" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit">${d&&d.opts&&d.opts[0]||""}</textarea></div>`;}
+  if(t==="问答题"){html=`<div class="field"><label>参考答案（阅卷参考）</label><textarea rows="3" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit">${d&&d.opts&&d.opts[0]||""}</textarea></div>`;}
   else if(t==="填空题"){html=`<div class="field"><label>参考答案</label><input value="${d&&d.opts&&d.opts[0]||""}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)" placeholder="如：不得擅自改变"></div>`;}
+  else if(t==="判断题"){
+    // 判断题：A=正确 B=错误，固定两项不可编辑不可删除
+    const labels="AB";
+    const fixed=["正确","错误"];
+    const init=d&&d.opts&&d.opts.length===2?d.opts:fixed;
+    for(let i=0;i<2;i++){
+      html+=`<div class="opt-row" data-i="${i}" style="cursor:default"><span class="rk">${labels[i]}</span><input type="text" value="${init[i]}" readonly style="color:var(--text-2);background:var(--card-3);cursor:not-allowed"></div>`;
+    }
+    html+=`<div class="field" style="margin-top:12px"><label>正确选项</label><div id="ans-pick" style="display:flex;gap:8px;flex-wrap:wrap">${[0,1].map(i=>`<button class="btn-2" data-a="${i}" onclick="pickAns(this)" style="padding:7px 14px">${fixed[i]}</button>`).join("")}</div><p style="font-size:11.5px;color:var(--text-3);margin-top:6px">判断题选项已固定为「正确 / 错误」，无需修改</p></div>`;
+  }
   else{
-    const n=t==="判断题"?2:4;const labels="ABCDE";
+    const n=4;const labels="ABCDE";
     for(let i=0;i<n;i++){html+=`<div class="opt-row" data-i="${i}"><span class="rk">${labels[i]}</span><input type="text" value="${d&&d.opts&&d.opts[i]||""}" placeholder="选项内容"><button class="act-d" onclick="this.parentNode.remove()">${ic('x')}</button></div>`;}
     html+=`<div class="add-opt" onclick="addOptRow()">${ic('plus')}<span>添加选项</span></div>`;
     html+=`<div class="field" style="margin-top:12px"><label>${t==="多选题"?"正确选项（可多选）":"正确选项"}</label><div id="ans-pick" style="display:flex;gap:8px;flex-wrap:wrap">${Array.from({length:n}).map((_,i)=>`<button class="btn-2" data-a="${i}" onclick="pickAns(this)" style="padding:7px 14px">${labels[i]}</button>`).join("")}</div></div>`;
@@ -998,24 +1154,24 @@ function editQ(id){const b=bankData.find(x=>x.id===id);window._ans=b.ans.slice()
 function previewQ(id){const b=bankData.find(x=>x.id===id);
   openModal(`<div class="m-head"><h3>试题预览 #${id}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body"><div style="font-size:14px;line-height:1.8;margin-bottom:14px">${b.stem}</div>
-  <div style="color:var(--text-2);font-size:13px;line-height:2">${b.opts.map((o,k)=>"ABCDE"[k]+". "+o).join("<br>")||"（简答/填空）"}</div>
+  <div style="color:var(--text-2);font-size:13px;line-height:2">${b.opts.map((o,k)=>"ABCDE"[k]+". "+o).join("<br>")||"（问答/填空）"}</div>
   ${b.ans.length?`<div style="margin-top:14px;padding:10px 12px;background:var(--cp-bg);color:var(--cp);border-radius:9px;font-size:13px">参考答案：${b.ans.map(k=>"ABCDE"[k]||(b.opts[0]||'')).join("、")}</div>`:""}</div>
   <div class="m-foot"><button class="btn-2" onclick="closeModal()">关闭</button></div>`,"sm");}
 function saveQ(){
   const stem=$("#q-stem").value;if(!stem.trim()){toast("请填写题干");return;}
   const t=window._qtype;let opts=[],ans=[];
-  if(t==="简答题"||t==="填空题"){opts=[$("#q-opts textarea,#q-opts input").value];}
+  if(t==="问答题"||t==="填空题"){opts=[$("#q-opts textarea,#q-opts input").value];}
   else{document.querySelectorAll("#q-opts .opt-row").forEach(r=>opts.push(r.querySelector("input").value));
     ans=Array.from(document.querySelectorAll("#ans-pick button")).filter(b=>b.style.background==="var(--cp)").map(b=>+b.dataset.a);}
-  const rec={id:0,type:t,cat:$("#q-cat").value,lv:$("#q-lv").value,diff:$("#q-diff").value,stem,opts,ans,rate:"—",analysis:$("#q-ana").value};
+  const rec={id:0,type:t,cat:$("#q-cat").value,diff:$("#q-diff").value,stem,opts,ans,rate:"—",analysis:$("#q-ana").value};
   if(window._qeditId){const b=bankData.find(x=>x.id===window._qeditId);Object.assign(b,rec);b.id=window._qeditId;closeModal();renderBank();toast("试题已更新");}
   else{rec.id=Math.max(...bankData.map(b=>b.id))+1;bankData.push(rec);closeModal();renderBank();toast("试题已保存至题库");}
   persist();window._qeditId=0;}
 function delQ(id){if(confirm("确认删除该题？")){const i=bankData.findIndex(b=>b.id===id);bankData.splice(i,1);persist();renderBank();}}
 function exportBank(){
   if(!bankData.length){toast("题库为空");return;}
-  const head=["ID","题型","分类","密级","难度","题干","选项","答案","正确率","解析"];
-  const rows=bankData.map(b=>([b.id,b.type,b.cat,b.lv,b.diff,b.stem,b.opts.join("；"),b.ans.map(k=>"ABCDE"[k]||"").join(""),b.rate,b.analysis||""]));
+  const head=["ID","题型","分类","难度","题干","选项","答案","解析"];
+  const rows=bankData.map(b=>([b.id,b.type,b.cat,b.diff,b.stem,b.opts.join("；"),b.ans.map(k=>"ABCDE"[k]||"").join(""),b.analysis||""]));
   const csv=[head,...rows].map(r=>r.map(c=>'"'+(""+(c==null?"":c)).replace(/"/g,'""')+'"').join(",")).join("\r\n");
   const blob=new Blob(["﻿"+csv],{type:"text/csv;charset=utf-8"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="题库导出.csv";a.click();
@@ -1027,9 +1183,9 @@ function openBankImport(){
   openModal(`<div class="m-head"><h3>批量导入试题</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body">
     <p style="font-size:13px;color:var(--text-2);line-height:1.8;margin-bottom:10px">每行一条试题，使用竖线 <b>|</b> 分隔字段：<br>
-    <code style="font-size:12px;background:var(--card-2);padding:2px 6px;border-radius:6px">题型|分类|密级|难度|题干|选项(分号分隔)|答案(字母,多选用逗号)|解析</code><br>
-    单/多/判断题需填选项与答案字母；填空/简答题可不填选项，答案即参考答案；判断题选项留空自动补「正确/错误」。</p>
-    <textarea id="bk-imp" rows="9" placeholder="单选题|保密法律法规|秘密|易|题干内容|A选项;B选项;C选项|B|解析可选&#10;多选题|涉密人员管理|秘密|中|题干|A选项;B选项;...|A,C&#10;判断题|涉密计算机信息系统|机密|难|题干|正确;错误|A&#10;填空题|涉密载体管理|秘密|中|题干||参考答案&#10;简答题|涉密人员管理|秘密|难|题干||开放参考答案" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit;resize:vertical"></textarea>
+    <code style="font-size:12px;background:var(--card-2);padding:2px 6px;border-radius:6px">题型|分类|难度|题干|选项(分号分隔)|答案(字母,多选用逗号)|解析</code><br>
+    单/多/判断题需填选项与答案字母；填空/问答题可不填选项，答案即参考答案；判断题选项留空自动补「正确/错误」。</p>
+    <textarea id="bk-imp" rows="9" placeholder="单选题|保密法律法规|易|题干内容|A选项;B选项;C选项|B|解析可选&#10;多选题|涉密人员管理|中|题干|A选项;B选项;...|A,C&#10;判断题|涉密计算机信息系统|难|题干|正确;错误|A&#10;填空题|涉密载体管理|中|题干||参考答案&#10;问答题|涉密人员管理|难|题干||开放参考答案" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit;resize:vertical"></textarea>
     <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;align-items:center">
       <label class="btn-2" style="cursor:pointer">${ic('upload')}<span>上传文件</span><input type="file" id="bk-file" accept=".txt,.csv" style="display:none" onchange="bankFile(this)"></label>
       <button class="btn-2" onclick="downloadBankTpl()">${ic('download')}<span>下载模板</span></button>
@@ -1043,21 +1199,31 @@ function parseBankLines(text){
   const lines=text.split(/\r?\n/).map(s=>s.trim()).filter(s=>s&&!s.startsWith("#"));
   const out=[];let maxId=Math.max(...bankData.map(b=>b.id));
   for(const ln of lines){
+    // 兼容老模板：含「密级」列；新模板：6 字段
     const f=ln.split("|").map(x=>x.trim());
     if(f.length<5)continue;
-    const type=f[0],cat=f[1]||"其他",lv=f[2]||"内部",diff=f[3]||"易",stem=f[4]||"";
+    // 新模板 7 字段：题型|分类|难度|题干|选项|答案|解析
+    // 老模板 8 字段：题型|分类|密级|难度|题干|选项|答案|解析
+    let type,cat,diff,stem,optsIdx,ansIdx,analysisIdx;
+    if(f.length>=8){
+      type=f[0];cat=f[1]||"其他";diff=f[3]||"易";stem=f[4]||"";
+      optsIdx=5;ansIdx=6;analysisIdx=7;
+    }else{
+      type=f[0];cat=f[1]||"其他";diff=f[2]||"易";stem=f[3]||"";
+      optsIdx=4;ansIdx=5;analysisIdx=6;
+    }
     if(!stem)continue;
     let opts=[],ans=[];
-    if(type==="填空题"||type==="简答题"){opts=[f[6]||""];ans=[];}
+    if(type==="填空题"||type==="问答题"||type==="问答题"){opts=[f[optsIdx]||""];ans=[];}
     else if(type==="判断题"){
-      opts=(f[5]?f[5].split(/[;；]/).map(x=>x.trim()):["正确","错误"]).filter(Boolean);if(!opts.length)opts=["正确","错误"];
-      const a=(f[6]||"A").trim();ans=[a==="B"||a==="错"||a==="错误"?1:0];
+      opts=(f[optsIdx]?f[optsIdx].split(/[;；]/).map(x=>x.trim()):["正确","错误"]).filter(Boolean);if(!opts.length)opts=["正确","错误"];
+      const a=(f[ansIdx]||"A").trim();ans=[a==="B"||a==="错"||a==="错误"?1:0];
     } else {
-      opts=f[5]?f[5].split(/[;；]/).map(x=>x.trim()).filter(Boolean):[];
-      const al=(f[6]||"").split(/[;；,，]/).map(x=>x.trim().toUpperCase());
+      opts=f[optsIdx]?f[optsIdx].split(/[;；]/).map(x=>x.trim()).filter(Boolean):[];
+      const al=(f[ansIdx]||"").split(/[;；,，]/).map(x=>x.trim().toUpperCase());
       al.forEach(L=>{const idx="ABCDEFG".indexOf(L);if(idx>=0&&idx<opts.length)ans.push(idx);});
     }
-    out.push({id:++maxId,type,cat,lv,diff,stem,opts,ans,rate:"—",analysis:f[7]||""});
+    out.push({id:++maxId,type,cat,diff,stem,opts,ans,rate:"—",analysis:f[analysisIdx]||""});
   }
   return out;
 }
@@ -1069,7 +1235,7 @@ function saveBankImport(){
   bankData.push(...list);persist();closeModal();renderBank();toast(`已导入 ${list.length} 道试题`);
 }
 function downloadBankTpl(){
-  const tpl="题型|分类|密级|难度|题干|选项(分号分隔)|答案(字母)|解析\r\n单选题|保密法律法规|秘密|易|国家秘密是关系国家安全和利益,()的事项。|根据实际需要确定;依照法定程序确定;按照领导的意图确定|B|依据法定程序确定\r\n多选题|涉密人员管理|秘密|中|下列哪些属于涉密人员离岗离职前应当办理的事项?|清退所保管涉密载体;办理移交手续;注销门禁权限;接受保密提醒谈话|A;C;D\r\n判断题|涉密计算机信息系统|机密|难|涉密计算机信息系统可以与国际互联网实行逻辑隔离后连接。|正确;错误|A\r\n填空题|涉密载体管理|秘密|中|复制属于国家秘密的文件、资料,()原件的密级。|不得擅自改变\r\n简答题|涉密人员管理|秘密|难|简述涉密人员计算机管理'十个不得'中至少三项核心要求。||开放参考答案";
+  const tpl="题型|分类|难度|题干|选项(分号分隔)|答案(字母)|解析\r\n单选题|保密法律法规|易|国家秘密是关系国家安全和利益,()的事项。|根据实际需要确定;依照法定程序确定;按照领导的意图确定|B|依据法定程序确定\r\n多选题|涉密人员管理|中|下列哪些属于涉密人员离岗离职前应当办理的事项?|清退所保管涉密载体;办理移交手续;注销门禁权限;接受保密提醒谈话|A;C;D\r\n判断题|涉密计算机信息系统|难|涉密计算机信息系统可以与国际互联网实行逻辑隔离后连接。|正确;错误|A\r\n填空题|涉密载体管理|中|复制属于国家秘密的文件、资料,()原件的密级。|不得擅自改变\r\n问答题|涉密人员管理|难|简述涉密人员计算机管理'十个不得'中至少三项核心要求。||开放参考答案";
   const blob=new Blob([tpl],{type:"text/csv;charset=utf-8"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="试题导入模板.csv";a.click();
   setTimeout(()=>URL.revokeObjectURL(a.href),1000);
@@ -1077,93 +1243,140 @@ function downloadBankTpl(){
 
 /* ============ 试卷管理 ============ */
 function renderPapers(){
-  const cards=papers.map(p=>{const qs=p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean);
+  const all=papers.map(p=>{const qs=p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean);
     const types={};qs.forEach(q=>types[q.type]=(types[q.type]||0)+1);
     const tstr=Object.entries(types).map(([k,v])=>`${k} ${v}`).join(" · ");
     return `<tr><td><b>${p.name}</b></td><td>${tstr}</td><td><b>${p.total}</b> 分</td><td>${p.dur} 分钟</td>
-      <td>${lvTag(p.lv)}</td><td>${statTag(p.status)}</td>
-      <td><div class="row-act"><span class="act-v" onclick="previewPaper(${p.id})">预览</span><span class="act-c" onclick="composePaper(${p.id})">组卷</span><span class="${p.status==='已发布'?'act-n':'act-d'}" onclick="togglePub(${p.id})">${p.status==='已发布'?'停用':'发布'}</span><span class="act-d" onclick="delPaper(${p.id})">删除</span></div></td></tr>`;}).join("");
+      <td>${statTag(p.status)}</td>
+      <td><div class="row-act"><span class="act-v" onclick="previewPaper(${p.id})">预览</span><span class="act-c" onclick="composePaper(${p.id})">组卷</span><span class="${p.status==='已发布'?'act-n':'act-d'}" onclick="togglePub(${p.id})">${p.status==='已发布'?'停用':'发布'}</span><span class="act-d" onclick="delPaper(${p.id})">删除</span></div></td></tr>`;});
+  const pg=paginate(all,paperPage,PAGE_SIZE);
+  const cards=pg.items.join("");
   $("#v-paper").innerHTML=`
   <div class="page-head"><h2>试卷管理</h2><span class="sub">支持固定组卷 / 随机抽题两种模式</span><div class="spacer"></div>
     <button class="btn-p" onclick="composePaper()">${ic('plus')}<span>新建试卷</span></button></div>
-  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>试卷名称</th><th>题型构成</th><th>总分</th><th>时长</th><th>密级</th><th>状态</th><th>操作</th></tr></thead>
-    <tbody>${cards}</tbody></table></div></div>`;
+  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>试卷名称</th><th>题型构成</th><th>总分</th><th>时长</th><th>状态</th><th>操作</th></tr></thead>
+    <tbody>${cards||'<tr><td colspan="6" class="empty">暂无试卷</td></tr>'}</tbody></table></div>${buildPager(pg.total,pg.page,PAGE_SIZE,'paper')}</div>`;
 }
 function composePaper(id){
   const p=id?papers.find(x=>x.id===id):null;
   window._pmode='fixed';window._rdraw=[];
-  const types=["单选题","多选题","判断题","填空题","简答题"];
+  const types=["单选题","多选题","判断题","问答题"];
   const fixedRows=bankData.map(b=>`<tr>
     <td><input type="checkbox" id="pp-chk-${b.id}" ${p&&p.q.includes(b.id)?'checked':''} style="accent-color:var(--cp)"></td>
     <td style="max-width:300px;white-space:normal">${b.stem.slice(0,34)}…</td>
-    <td>${b.type}</td><td>${lvTag(b.lv)}</td>
+    <td>${b.type}</td>
     <td><input id="pp-sc-${b.id}" value="${p&&p.sc&&p.q.includes(b.id)?p.sc[p.q.indexOf(b.id)]:10}" style="width:56px;padding:5px 8px;border:1px solid var(--border);border-radius:7px;background:var(--card-2);color:var(--text)"></td></tr>`).join("");
   openModal(`<div class="m-head"><h3>${p?'组卷 · '+p.name:'新建试卷'}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body">
-    <div class="tabs"><button class="on" id="tab-fixed" onclick="ppTab('fixed')">固定组卷</button><button id="tab-rand" onclick="ppTab('random')">随机抽题</button></div>
-    <div class="f-row"><div class="field"><label>试卷名称</label><input id="pp-name" value="${p?p.name:'2026年度新增保密考试卷'}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>
-      <div class="field"><label>考试时长（分钟）</label><input id="pp-dur" value="${p?p.dur:60}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>
-      <div class="field"><label>密级</label><select id="pp-lv" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"><option ${p&&p.lv==='秘密'?'selected':''}>秘密</option><option ${p&&p.lv==='机密'?'selected':''}>机密</option><option ${p&&p.lv==='内部'?'selected':''}>内部</option></select></div></div>
-    <div id="pp-fixed" class="field"><label>从题库选题（勾选加入试卷，可设分值）</label>
-      <div style="max-height:300px;overflow:auto;border:1px solid var(--border);border-radius:10px"><table><thead><tr><th style="width:50px">选</th><th>题干</th><th>题型</th><th>密级</th><th style="width:80px">分值</th></tr></thead><tbody>${fixedRows}</tbody></table></div></div>
+    <div class="tabs"><button class="on" id="tab-fixed" onclick="ppTab('fixed')">固定组卷</button><button id="tab-rand" onclick="ppTab('random')">智能组卷</button></div>
+    <div id="pp-fixed" class="field">
+      <div class="f-row" style="margin-bottom:14px"><div class="field"><label>试卷名称</label><input id="pp-name" value="${p?p.name:'2026年度新增保密考试卷'}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>
+        <div class="field"><label>考试时长（分钟）</label><input id="pp-dur" value="${p?p.dur:60}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div></div>
+      <label>从题库选题（勾选加入试卷，可设分值）</label>
+      <div style="max-height:300px;overflow:auto;border:1px solid var(--border);border-radius:10px"><table><thead><tr><th style="width:50px">选</th><th>题干</th><th>题型</th><th style="width:80px">分值</th></tr></thead><tbody>${fixedRows}</tbody></table></div></div>
     <div id="pp-random" style="display:none">
-      <p style="font-size:13px;color:var(--text-2);margin-bottom:10px">设定各题型抽取数量，从题库中随机抽取（不重复）。</p>
-      <div class="f-row">${types.map((t,i)=>`<div class="field"><label>${t}</label><input id="pp-rc-${i}" value="0" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>`).join("")}</div>
-      <button class="btn-2" onclick="doRandom()">${ic('refresh')}<span>执行随机抽题</span></button>
-      <div id="pp-rand-msg" style="margin-top:10px;font-size:13px;color:var(--text-2)"></div>
+      <div class="cp-head">
+        <div class="cp-h-row">
+          <div class="cp-h-field"><label>试卷名称</label><input id="cp-name" value="${p?p.name:'2026年度新增保密考试卷'}" placeholder="例如：2024秋季前端期末测"></div>
+          <div class="cp-h-field"><label>所属科目</label><select id="cp-sub"><option ${p&&p.sub==='保密基础'?'selected':''}>保密基础</option><option ${p&&p.sub==='保密法规'?'selected':''}>保密法规</option><option ${p&&p.sub==='涉密人员管理'?'selected':''}>涉密人员管理</option><option ${p&&p.sub==='涉密载体管理'?'selected':''}>涉密载体管理</option><option ${p&&p.sub==='涉密计算机与信息系统'?'selected':''}>涉密计算机与信息系统</option><option ${p&&p.sub==='其他'?'selected':''}>其他</option></select></div>
+        </div>
+        <div class="cp-h-row">
+          <div class="cp-h-field"><label>试卷总分</label><input id="cp-total" value="${p?p.total:100}" type="number" min="1" max="999" oninput="cpRecalc()"></div>
+          <div class="cp-h-field"><label>考试时长（分钟）</label><input id="cp-dur" value="${p?p.dur:120}" type="number" min="1" max="999"></div>
+        </div>
+      </div>
+      <div class="cp-types">${types.map((t,i)=>`<div class="cp-row" data-i="${i}">
+        <div class="cp-title">${t}</div>
+        <div class="cp-grid">
+          <div class="cp-fld"><span>每题分值</span><input type="number" min="0" max="100" id="cp-sc-${i}" value="${t==='单选题'?'2':t==='多选题'?'4':t==='判断题'?'2':'10'}" oninput="cpRecalc()"></div>
+          <div class="cp-fld"><span>题量</span><input type="number" min="0" max="200" id="cp-num-${i}" value="0" oninput="cpRecalc()"></div>
+          <div class="cp-fld cp-diff"><span>难度</span><select id="cp-df-${i}"><option value="不限">不限难度</option><option value="易">易</option><option value="中">中</option><option value="难">难</option></select></div>
+        </div>
+      </div>`).join("")}</div>
+      <div class="cp-sum">当前题型合计总分：<b id="cp-sum-val">0</b> 分 <span class="cp-hint" id="cp-hint"></span></div>
     </div>
   </div>
-  <div class="m-foot"><button class="btn-2" onclick="closeModal()">取消</button><button class="btn-p" onclick="savePaper(${p?p.id:0})">${ic('check')}<span>保存试卷</span></button></div>`,"lg");
+  <div class="m-foot" id="pp-foot">
+    <button class="btn-2" onclick="closeModal()">取消</button>
+    <button class="btn-2" id="pp-foot-fixed" onclick="savePaper(${p?p.id:0})">${ic('check')}<span>保存试卷</span></button>
+    <button class="cp-go" id="pp-foot-go" onclick="doRandom(${p?p.id:0})" style="display:none">${ic('check')}<span>开始智能组卷</span></button>
+  </div>`,"lg");
 }
-function ppTab(m){window._pmode=m;$("#tab-fixed").classList.toggle("on",m==='fixed');$("#tab-rand").classList.toggle("on",m==='random');$("#pp-fixed").style.display=m==='fixed'?'block':'none';$("#pp-random").style.display=m==='random'?'block':'none';}
-function doRandom(){
-  const types=["单选题","多选题","判断题","填空题","简答题"];
-  let draw=[];
+function ppTab(m){window._pmode=m;$("#tab-fixed").classList.toggle("on",m==='fixed');$("#tab-rand").classList.toggle("on",m==='random');$("#pp-fixed").style.display=m==='fixed'?'block':'none';$("#pp-random").style.display=m==='random'?'block':'none';$("#pp-foot-fixed").style.display=m==='fixed'?'inline-flex':'none';$("#pp-foot-go").style.display=m==='random'?'inline-flex':'none';if(m==='random')cpRecalc();}
+function cpRecalc(){
+  const types=["单选题","多选题","判断题","问答题"];
+  let sum=0,msg="";
+  types.forEach((t,i)=>{
+    const sc=parseInt($("#cp-sc-"+i).value)||0;
+    const n=parseInt($("#cp-num-"+i).value)||0;
+    sum+=sc*n;
+    // 题库是否够
+    const diff=$("#cp-df-"+i).value;
+    const pool=bankData.filter(b=>b.type===t&&(diff==="不限"||b.diff===diff));
+    if(n>pool.length)msg+=` · ${t}题库仅 ${pool.length} 道可选`;
+  });
+  $("#cp-sum-val").textContent=sum;
+  $("#cp-hint").textContent=msg;
+  $("#cp-hint").style.color=msg?"var(--danger)":"var(--text-3)";
+}
+function doRandom(pid){
+  const name=$("#cp-name").value.trim()||("智能组卷-"+new Date().toLocaleDateString("zh-CN"));
+  const types=["单选题","多选题","判断题","问答题"];
+  let draw=[],sc=[];
   for(let i=0;i<types.length;i++){
-    const n=parseInt($("#pp-rc-"+i).value)||0;if(n<=0)continue;
-    const pool=bankData.filter(b=>b.type===types[i]);
+    const n=parseInt($("#cp-num-"+i).value)||0;
+    const s=parseInt($("#cp-sc-"+i).value)||10;
+    if(n<=0)continue;
+    const diff=$("#cp-df-"+i).value;
+    const pool=bankData.filter(b=>b.type===types[i]&&(diff==="不限"||b.diff===diff));
     const shuffled=pool.slice().sort(()=>Math.random()-0.5);
-    draw=draw.concat(shuffled.slice(0,Math.min(n,pool.length)).map(b=>b.id));
+    const take=Math.min(n,pool.length);
+    draw=draw.concat(shuffled.slice(0,take).map(b=>b.id));
+    for(let k=0;k<take;k++)sc.push(s);
   }
-  window._rdraw=draw;
-  $("#pp-rand-msg").innerHTML=draw.length?`已抽取 <b style="color:var(--cp)">${draw.length}</b> 道题（各题型不重复）。保存后每题按 10 分计入总分。`:"题库中无符合条件试题，请调整数量。";
+  if(!draw.length){toast("请至少填写一个题型的题量");return;}
+  const total=sc.reduce((a,b)=>a+b,0);
+  const dur=parseInt($("#cp-dur").value)||60;
+  const sub=$("#cp-sub").value;
+  if(pid){const p=papers.find(x=>x.id===pid);p.name=name;p.total=total;p.dur=dur;p.q=draw;p.sc=sc;p.sub=sub;}
+  else{papers.push({id:Math.max(...papers.map(x=>x.id))+1,name,total,dur,lv:"秘密",status:"草稿",q:draw,sc,sub});}
+  persist();closeModal();renderPapers();toast("智能组卷完成 · 共 "+draw.length+" 题 / "+total+" 分");
 }
 function savePaper(pid){
   const name=$("#pp-name").value.trim();if(!name){toast("请填写试卷名称");return;}
-  const dur=parseInt($("#pp-dur").value)||60,lv=$("#pp-lv").value;
+  const dur=parseInt($("#pp-dur").value)||60;
   let q=[],sc=[],total=0;
-  if(window._pmode==='random'){
-    q=window._rdraw.slice();sc=q.map(()=>10);total=q.length*10;
-    if(!q.length){toast("请先执行随机抽题");return;}
-  } else {
-    bankData.forEach(b=>{const c=$("#pp-chk-"+b.id);if(c&&c.checked){const s=parseInt($("#pp-sc-"+b.id).value)||10;q.push(b.id);sc.push(s);total+=s;}});
-    if(!q.length){toast("请至少选择一道试题");return;}
-  }
-  if(pid){const p=papers.find(x=>x.id===pid);p.name=name;p.dur=dur;p.lv=lv;p.q=q;p.sc=sc;p.total=total;}
-  else{papers.push({id:Math.max(...papers.map(x=>x.id))+1,name,total,dur,lv,status:"草稿",q,sc});}
+  bankData.forEach(b=>{const c=$("#pp-chk-"+b.id);if(c&&c.checked){const s=parseInt($("#pp-sc-"+b.id).value)||10;q.push(b.id);sc.push(s);total+=s;}});
+  if(!q.length){toast("请至少选择一道试题");return;}
+  if(pid){const p=papers.find(x=>x.id===pid);p.name=name;p.dur=dur;p.q=q;p.sc=sc;p.total=total;}
+  else{papers.push({id:Math.max(...papers.map(x=>x.id))+1,name,total,dur,status:"草稿",q,sc});}
   persist();closeModal();renderPapers();toast("试卷已保存");
 }
 function previewPaper(id){const p=papers.find(x=>x.id===id);const qs=p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean);
   openModal(`<div class="m-head"><h3>试卷预览 · ${p.name}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
-  <div class="m-body" style="max-height:62vh">总分 ${p.total} 分 · 时长 ${p.dur} 分钟 · ${lvTag(p.lv)}
-    <div style="margin-top:14px">${qs.map((q,i)=>`<div style="padding:12px 0;border-bottom:1px dashed var(--border)"><b>${i+1}. [${q.type}]</b> ${q.stem}<div style="margin-top:6px;color:var(--text-2);font-size:13px;line-height:1.9">${q.opts.map((o,k)=>"ABCDE"[k]+". "+o).join("；")||"（简答/填空）"}</div></div>`).join("")}</div></div>
+  <div class="m-body" style="max-height:62vh">总分 ${p.total} 分 · 时长 ${p.dur} 分钟
+    <div style="margin-top:14px">${qs.map((q,i)=>`<div style="padding:12px 0;border-bottom:1px dashed var(--border)"><b>${i+1}. [${q.type}]</b> ${q.stem}<div style="margin-top:6px;color:var(--text-2);font-size:13px;line-height:1.9">${q.opts.map((o,k)=>"ABCDE"[k]+". "+o).join("；")||"（问答/填空）"}</div></div>`).join("")}</div></div>
   <div class="m-foot"><button class="btn-2" onclick="closeModal()">关闭</button></div>`,"lg");}
 function togglePub(id){const p=papers.find(x=>x.id===id);p.status=p.status==='已发布'?'草稿':'已发布';persist();renderPapers();toast(p.name+" 已"+(p.status==='已发布'?'发布':'停用'));}
 function delPaper(id){if(!confirm("确认删除该试卷？关联考试不受影响，但试卷题目将不可用。"))return;const i=papers.findIndex(x=>x.id===id);if(i<0)return;papers.splice(i,1);persist();renderPapers();toast("试卷已删除");}
 
 /* ============ 考试管理 ============ */
 function renderExams(){
-  const rows=exams.map(e=>{const p=papers.find(x=>x.id===e.paper);
+  const all=exams.map(e=>{const p=papers.find(x=>x.id===e.paper);
     return `<tr><td><b>${e.name}</b></td><td>${p?p.name:'—'}</td><td>${e.range}</td><td>${e.start}<br><span style="color:var(--text-3);font-size:12px">至 ${e.end}</span></td>
-      <td>${statTag(e.status)}</td><td><div class="row-act"><span class="act-v" onclick="examSetting(${e.id})">配置</span><span class="act-c" onclick="startExam(${e.id})">进入</span><span class="${e.status==='停用'?'act-n':'act-d'}" onclick="stopExam(${e.id})">停用</span><span class="act-d" onclick="delExam(${e.id})">删除</span></div></td></tr>`;}).join("");
+      <td>${statTag(e.status)}</td><td><div class="row-act"><span class="act-v" onclick="examSetting(${e.id})">配置</span><span class="act-c" onclick="startExam(${e.id})">进入</span><span class="${e.status==='停用'?'act-n':'act-d'}" onclick="stopExam(${e.id})">停用</span><span class="act-d" onclick="delExam(${e.id})">删除</span></div></td></tr>`;});
+  const pg=paginate(all,examPage,PAGE_SIZE);
+  const rows=pg.items.join("");
   $("#v-exam").innerHTML=`
   <div class="page-head"><h2>考试管理</h2><span class="sub">配置考试范围、时间与防作弊策略</span><div class="spacer"></div>
     <button class="btn-p" onclick="examSetting()">${ic('plus')}<span>新建考试</span></button></div>
   <div class="card"><div class="tbl-wrap"><table><thead><tr><th>考试名称</th><th>关联试卷</th><th>参考范围</th><th>考试时间</th><th>状态</th><th>操作</th></tr></thead>
-    <tbody>${rows}</tbody></table></div></div>`;
+    <tbody>${rows||'<tr><td colspan="6" class="empty">暂无考试</td></tr>'}</tbody></table></div>${buildPager(pg.total,pg.page,PAGE_SIZE,'exam')}</div>`;
 }
 function examSetting(id){
   const e=id?exams.find(x=>x.id===id):null;a=e?e.anti:{sw:3,cam:true,copy:true,rand:false};
+  const initRange=e?(e.range==="全体涉密人员"?[]:e.range.split(/[、,，]/)):[];
+  setTimeout(()=>ppInit(initRange),0);
   openModal(`<div class="m-head"><h3>${e?'考试配置 · '+e.name:'新建考试'}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
   <div class="m-body">
     <div class="f-row">
@@ -1171,14 +1384,21 @@ function examSetting(id){
       <div class="field"><label>关联试卷</label><select id="ex-paper" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)">${papers.map(p=>`<option ${e&&e.paper===p.id?'selected':''}>${p.name}</option>`).join("")}</select></div>
     </div>
     <div class="f-row">
-      <div class="field"><label>开始时间</label><input id="ex-start" value="${e?e.start:'2026-09-10 09:00'}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>
-      <div class="field"><label>结束时间</label><input id="ex-end" value="${e?e.end:'2026-09-20 18:00'}" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text)"></div>
+      <div class="field"><label>开始时间</label><div class="f-time-wrap"><input id="ex-start" type="datetime-local" step="60" value="${toDT(e?e.start:'2026-09-10 09:00')}" class="f-time">
+        <div class="quick"><span onclick="quickSetTime('ex-start',0)">现在</span><span onclick="quickSetTime('ex-start',1)">1 小时后</span><span onclick="quickSetTime('ex-start',24)">明天 09:00</span><span onclick="quickSetTime('ex-start',24*7)">一周后</span></div></div></div>
+      <div class="field"><label>结束时间</label><div class="f-time-wrap"><input id="ex-end" type="datetime-local" step="60" value="${toDT(e?e.end:'2026-09-20 18:00')}" class="f-time">
+        <div class="quick"><span onclick="quickSetTime('ex-end',1)">1 小时后</span><span onclick="quickSetTime('ex-end',24)">明天 18:00</span><span onclick="quickSetTime('ex-end',24*7)">一周后</span><span onclick="quickSetTime('ex-end',24*30)">一个月后</span></div></div></div>
     </div>
     <div class="field"><label>参考人员范围</label>
-      <select id="ex-range" multiple size="${Math.min(persons.length||3,6)}" style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit">
-        ${persons.map(p=>`<option value="${p.name}" ${e&&e.range.includes(p.name)?'selected':''}>${p.name}（${p.dept}·${p.lv}涉密）</option>`).join("")}
-      </select>
-      <p style="font-size:11.5px;color:var(--text-3);margin-top:6px">可多选考生库人员；不选则默认「全体涉密人员」。</p></div>
+      <div class="pp" id="ex-pp">
+        <div class="pp-head">
+          <div class="pp-search">${ic('search')}<input id="pp-kw" placeholder="搜索姓名/部门/密级…" oninput="ppFilter()"></div>
+          <div class="pp-tags" id="pp-tags"></div>
+        </div>
+        <div class="pp-body" id="pp-body"></div>
+        <div class="pp-foot"><span>已选 <b id="pp-cnt">0</b> 人 / 共 ${persons.length} 人；不选默认「全体涉密人员」</span><div class="acts"><span onclick="ppSelectAll(true)">全选</span><span onclick="ppSelectAll(false)">清空</span><span onclick="ppInvert()">反选</span></div></div>
+      </div>
+    </div>
     <h4 style="margin:18px 0 8px;font-size:14px">防作弊设置</h4>
     <div class="set-row"><div class="st"><b>允许切屏次数上限</b><p>超过将强制收卷并记录违纪</p></div>
       <input id="ex-sw" type="number" value="${a.sw}" min="0" max="10" style="width:78px;padding:8px 10px;border:1px solid var(--border);border-radius:9px;background:var(--card-2);color:var(--text)"></div>
@@ -1191,14 +1411,95 @@ function examSetting(id){
 function saveExam(eid){
   const name=$("#ex-name").value.trim();if(!name){toast("请填写考试名称");return;}
   const pname=$("#ex-paper").value;const paper=(papers.find(x=>x.name===pname)||papers[0]).id;
-  const selP=Array.from($("#ex-range").selectedOptions).map(o=>o.value);
-  const range=selP.length?selP.join("、"):"全体涉密人员";
-  const rec={name,paper,range,start:$("#ex-start").value,end:$("#ex-end").value,
+  const rangeArr=Array.from(ppSelected);
+  const range=rangeArr.length?rangeArr.join("、"):"全体涉密人员";
+  const start=dtToText($("#ex-start").value)||$("#ex-start").value;
+  const end=dtToText($("#ex-end").value)||$("#ex-end").value;
+  if(start&&end&&new Date(start.replace(" ","T"))>=new Date(end.replace(" ","T"))){toast("结束时间需晚于开始时间");return;}
+  const rec={name,paper,range,start,end,
     anti:{sw:parseInt($("#ex-sw").value)||0,cam:$("#ex-cam").classList.contains("on"),copy:$("#ex-copy").classList.contains("on"),rand:$("#ex-rand").classList.contains("on")}};
   if(eid){const e=exams.find(x=>x.id===eid);Object.assign(e,rec);}
   else{exams.push(Object.assign({id:Math.max(...exams.map(x=>x.id))+1,status:"未开始"},rec));}
   persist();closeModal();renderExams();toast("考试已保存");
 }
+
+/* ---------- 时间选择器辅助 ---------- */
+function toDT(v){
+  if(!v)return"";
+  if(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(v))return v.slice(0,16);
+  // "2026-09-10 09:00" → "2026-09-10T09:00"
+  const m=String(v).match(/^(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})/);
+  return m?m[1]+"T"+m[2]:"";
+}
+function dtToText(v){
+  if(!v)return"";
+  const m=String(v).match(/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/);
+  return m?m[1]+" "+m[2]:"";
+}
+function quickSetTime(id,offsetH){
+  const el=$("#"+id);if(!el)return;
+  const d=new Date();if(offsetH>0)d.setHours(d.getHours()+offsetH);
+  // 「明天 09:00」「明天 18:00」「一周后」「一个月后」按按钮文字语义处理
+  if(offsetH===24||offsetH===24*7){
+    d.setDate(d.getDate()+1);
+    if(id==="ex-start")d.setHours(9,0,0,0);
+    else if(offsetH===24&&id==="ex-end"){d.setHours(18,0,0,0);}
+    else d.setHours(18,0,0,0);
+  }else if(offsetH===24*30){
+    d.setDate(d.getDate()+30);d.setHours(18,0,0,0);
+  }
+  el.value=d.toISOString().slice(0,16);
+}
+
+/* ---------- 人员多选面板 ---------- */
+let ppSelected=new Set();
+function ppInit(initNames){
+  ppSelected=new Set(Array.isArray(initNames)?initNames.filter(x=>!x||x==="全体涉密人员"?false:true):(typeof initNames==="string"&&initNames&&initNames!=="全体涉密人员"?initNames.split(/[、,，]/):[]));
+  ppRender();
+}
+function ppRender(){
+  const kw=($("#pp-kw")?.value||"").trim().toLowerCase();
+  // 已有 selected 但不在 persons 里的也作为「外部」展示
+  const known=new Set(persons.map(p=>p.name));
+  const externNames=Array.from(ppSelected).filter(n=>!known.has(n));
+  // 标签
+  $("#pp-tags").innerHTML=Array.from(ppSelected).slice(0,6).map(n=>`<span class="pp-tag">${n}<i onclick="ppToggle('${n.replace(/'/g,"\\'")}')">×</i></span>`).join("")+(ppSelected.size>6?`<span class="pp-tag">+${ppSelected.size-6}</span>`:"");
+  $("#pp-cnt").textContent=ppSelected.size;
+  // 按部门分组
+  const groups={};
+  persons.forEach(p=>{(groups[p.dept]=groups[p.dept]||[]).push(p);});
+  externNames.forEach(n=>{(groups["其他"]=groups["其他"]||[]).push({name:n,dept:"其他",lv:"—"});});
+  const body=$("#pp-body");if(!body)return;
+  body.innerHTML=Object.keys(groups).sort().map(dept=>{
+    const list=groups[dept].filter(p=>!kw||p.name.toLowerCase().includes(kw)||p.dept.toLowerCase().includes(kw)||(p.lv||"").toLowerCase().includes(kw));
+    if(!list.length)return"";
+    const deptSelected=list.filter(p=>ppSelected.has(p.name)).length;
+    return `<div class="pp-group" data-dept="${dept}">
+      <div class="pp-ghead"><b>${dept}</b><span class="cnt">${deptSelected}/${list.length}</span><span class="all" onclick="ppSelectDept('${dept}',true)">全选</span><span class="all" onclick="ppSelectDept('${dept}',false)">清空</span></div>
+      <div class="pp-list">${list.map(p=>{const on=ppSelected.has(p.name);return `<div class="pp-row ${on?'on':''}" onclick="ppToggle('${p.name.replace(/'/g,"\\'")}')">
+        <div class="pp-av">${p.name[0]}</div>
+        <div class="pp-info"><div class="pp-name">${p.name}</div><div class="pp-dept">${p.dept}${p.lv?' · '+p.lv+'涉密':''}</div></div>
+        <span class="lv-tag">${p.lv||'—'}</span>
+        <span class="chk"></span>
+      </div>`}).join("")}</div>
+    </div>`;
+  }).join("")||'<div class="empty" style="padding:30px">无匹配人员</div>';
+}
+function ppToggle(name){
+  if(ppSelected.has(name))ppSelected.delete(name);else ppSelected.add(name);
+  ppRender();
+}
+function ppSelectAll(on){
+  if(on)persons.forEach(p=>ppSelected.add(p.name));else ppSelected.clear();
+  ppRender();
+}
+function ppSelectDept(dept,on){
+  const list=persons.filter(p=>p.dept===dept);
+  if(on)list.forEach(p=>ppSelected.add(p.name));else list.forEach(p=>ppSelected.delete(p.name));
+  ppRender();
+}
+function ppInvert(){persons.forEach(p=>{if(ppSelected.has(p.name))ppSelected.delete(p.name);else ppSelected.add(p.name);});ppRender();}
+function ppFilter(){ppRender();}
 function stopExam(id){if(confirm("确认停用该考试？")){const e=exams.find(x=>x.id===id);e.status="停用";persist();renderExams();toast("考试已停用");}}
 function delExam(id){if(!confirm("确认删除该考试？删除后不可恢复。"))return;const i=exams.findIndex(x=>x.id===id);if(i<0)return;exams.splice(i,1);persist();renderExams();toast("考试已删除");}
 function startExam(id){showView("take");renderTake(id);}
@@ -1212,9 +1513,6 @@ function renderTakeList(){
     if(e.status==="进行中")btn=`<button class="btn-p" onclick="startExam(${e.id})">${ic('play')}<span>进入考试</span></button>`;
     else if(e.status==="已结束")btn=`<button class="btn-2" disabled style="opacity:.5;cursor:not-allowed">已结束</button>`;
     else btn=`<button class="btn-2" disabled style="opacity:.5;cursor:not-allowed">未开始 · ${e.start.slice(5)}</button>`;
-    const tmap={};
-    if(p)p.q.forEach(id=>{const b=bankData.find(x=>x.id===id);if(b)tmap[b.type]=(tmap[b.type]||0)+1;});
-    const tstr=Object.keys(tmap).length?Object.keys(tmap).map(k=>`<span style="font-size:11.5px;padding:3px 9px;border-radius:20px;background:var(--card-2);color:var(--text-2);border:1px solid var(--border)">${k} ${tmap[k]}</span>`).join(""):'<span style="font-size:11.5px;padding:3px 9px;border-radius:20px;background:var(--card-2);color:var(--text-3);border:1px solid var(--border)">暂无题目</span>';
     return `<div class="take-card">
       <div class="tc-top">${ic('shieldCheck')}<div><div class="tc-name">${e.name}</div><div class="tc-range">${e.range}</div></div>${statTag(e.status)}</div>
       <div class="tc-meta">
@@ -1222,7 +1520,6 @@ function renderTakeList(){
         <div><span>时长</span><b>${dur} 分钟</b></div>
         <div><span>作答时间</span><b style="font-size:12px;font-weight:500">${e.start.slice(5)} ~ ${e.end.slice(5)}</b></div>
       </div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 2px">${tstr}</div>
       <div class="tc-act">${btn}</div>
     </div>`;
   }).join("");
@@ -1244,7 +1541,6 @@ function renderTake(id){
       <div class="exam-bar">
         <div class="ti">${e.name}</div>
         <span class="pg" id="pg">已答 0/${qs.length}</span>
-        ${lvTag(p.lv)}
         <span class="tm" id="tm">${fmt(p.dur*60)}</span>
         <span class="tag t-gray" id="autosave" style="margin-left:6px">自动保存</span>
       </div>
@@ -1271,14 +1567,14 @@ function startTimer(){timer=setInterval(()=>{examState.timeLeft--;if(examState.t
   $("#tm").textContent=fmt(examState.timeLeft);if(examState.timeLeft%10===0){examState.auto=new Date().toLocaleTimeString();$("#autosave").textContent="已保存 "+examState.auto;}},1000);}
 function paintQ(){const q=examState.questions[examState.idx];const multi=q.type==="多选题";
   let optHtml="";
-  if(q.type==="简答题"){optHtml=`<textarea rows="6" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:11px;background:var(--card-2);color:var(--text);font-family:inherit;resize:vertical" placeholder="请输入答案…">${examState.ans[q.id]||""}</textarea>`;}
+  if(q.type==="问答题"||q.type==="问答题"){optHtml=`<textarea rows="6" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:11px;background:var(--card-2);color:var(--text);font-family:inherit;resize:vertical" placeholder="请输入答案…">${examState.ans[q.id]||""}</textarea>`;}
   else if(q.type==="填空题"){optHtml=`<input value="${examState.ans[q.id]||""}" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:11px;background:var(--card-2);color:var(--text)" placeholder="请输入答案">`;}
   else{q.opts.forEach((o,k)=>{const sel=(examState.ans[q.id]||[]).includes(k);
     optHtml+=`<div class="opt ${multi?'multi':''} ${sel?'sel':''}" onclick="chooseOpt(${k})"><span class="box">${sel?ic('check'):''}</span><span>${o}</span></div>`;});}
   $("#eq").innerHTML=`<div class="qt"><span class="no">第 ${examState.idx+1} 题</span><span>${q.type}</span><span style="color:var(--text-3);font-weight:400;font-size:13px">· ${q.cat}</span></div>
-    <div class="qmeta">${lvTag(q.lv)} ${diffTag(q.diff)} <span style="margin-left:6px">${q.type==='简答题'?'开放题':q.type==='填空题'?'填空题':'选择题'}</span></div>
+    <div class="qmeta">${diffTag(q.diff)} <span style="margin-left:6px">${q.type==='问答题'||q.type==='简答题'?'开放题':q.type==='填空题'?'填空题':'选择题'}</span></div>
     <div style="font-size:15px;margin-bottom:14px;line-height:1.8">${q.stem}</div><div id="opts">${optHtml}</div>`;
-  if(q.type==="简答题"||q.type==="填空题"){const el=$("#eq textarea,#eq input");el.oninput=()=>examState.ans[q.id]=el.value;}
+  if(q.type==="问答题"||q.type==="问答题"||q.type==="填空题"){const el=$("#eq textarea,#eq input");el.oninput=()=>examState.ans[q.id]=el.value;}
   $("#flagBtn").innerHTML=ic('flag')+(examState.flag[q.id]?"<span>取消标记</span>":"<span>标记本题</span>");
   $$("#sg .sq").forEach(s=>s.classList.toggle("cur",+s.dataset.i===examState.idx));
 }
@@ -1288,9 +1584,9 @@ function chooseOpt(k){const q=examState.questions[examState.idx];let cur=examSta
   examState.ans[q.id]=cur;paintQ();buildSheet();}
 function flagQ(){const q=examState.questions[examState.idx];examState.flag[q.id]=!examState.flag[q.id];buildSheet();paintQ();}
 function buildSheet(){const g=$("#sg");if(!g)return;g.innerHTML=examState.questions.map((q,i)=>{
-  const ans=examState.ans[q.id];const done=q.type==="简答题"||q.type==="填空题"?(ans&&ans.trim()):(ans&&ans.length);
+  const ans=examState.ans[q.id];const done=q.type==="问答题"||q.type==="填空题"?(ans&&ans.trim()):(ans&&ans.length);
   return `<div class="sq ${done?'ans':''} ${examState.flag[q.id]?'flag':''}" data-i="${i}" onclick="gotoQ(${i})">${i+1}</div>`;}).join("");
-  const done=examState.questions.filter(q=>{const a=examState.ans[q.id];return q.type==="简答题"||q.type==="填空题"?(a&&a.trim()):(a&&a.length);}).length;
+  const done=examState.questions.filter(q=>{const a=examState.ans[q.id];return q.type==="问答题"||q.type==="填空题"?(a&&a.trim()):(a&&a.length);}).length;
   $("#pg").textContent=`已答 ${done}/${examState.questions.length}`;}
 function gotoQ(i){examState.idx=i;paintQ();}
 function prevQ(){if(examState.idx>0){examState.idx--;paintQ();}}
@@ -1324,60 +1620,170 @@ function submitExam(forced){
 }
 function reviewExam(){const d=examState;
   openModal(`<div class="m-head"><h3>答卷回顾 · ${d.e.name}</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
-  <div class="m-body" style="max-height:62vh">${d.questions.map((q,i)=>{const u=d.ans[q.id];let ua=q.type==="简答题"||q.type==="填空题"?(u||"（空）"):(u&&u.length?u.map(k=>"ABCDE"[k]+". "+q.opts[k]).join("；"):"（未作答）");
-    const ca=q.type==="简答题"?"见解析":q.type==="填空题"?(q.opts[0]||""):q.ans.map(k=>"ABCDE"[k]).join("");
+  <div class="m-body" style="max-height:62vh">${d.questions.map((q,i)=>{const u=d.ans[q.id];let ua=q.type==="问答题"||q.type==="填空题"?(u||"（空）"):(u&&u.length?u.map(k=>"ABCDE"[k]+". "+q.opts[k]).join("；"):"（未作答）");
+    const ca=q.type==="问答题"?"见解析":q.type==="填空题"?(q.opts[0]||""):q.ans.map(k=>"ABCDE"[k]).join("");
     return `<div style="padding:12px 0;border-bottom:1px dashed var(--border)"><b>${i+1}. [${q.type}]</b> ${q.stem}<div style="margin-top:6px">你的答案：<span style="color:#165DFF">${ua}</span></div><div>参考答案：<span style="color:#00B42A">${ca}</span></div></div>`;}).join("")}</div>
   <div class="m-foot"><button class="btn-2" onclick="closeModal()">关闭</button></div>`,"lg");}
 
 /* ============ 审卷管理 ============ */
 function renderGrade(){
-  const rows=scores.map(s=>`<tr><td><b>${s.exam}</b></td><td>${s.person}</td><td>${s.dept}</td>
-    <td>${s.score==="阅卷中"?'<span class="tag t-amber"><i class="sdot w"></i>待阅卷</span>':s.score+' 分'}</td>
-    <td>${s.pass===null?'—':s.pass?'<span class="tag t-green"><i class="sdot g"></i>通过</span>':'<span class="tag t-red"><i class="sdot d"></i>未通过</span>'}</td>
-    <td><span class="act-v" onclick="gradePaper(${s.id})">${s.score==='阅卷中'?'阅卷':'查看'}</span></td></tr>`).join("");
+  const all=scores.map(s=>{
+    const status=s.score==="阅卷中"?'<span class="tag t-blue"><i class="sdot w"></i>待阅卷</span>'
+                :s.score==="复核中"?'<span class="tag t-amber"><i class="sdot w"></i>复核中</span>'
+                :s.score==="已批阅"||typeof s.score==="number"?'<span class="tag t-green"><i class="sdot g"></i>已批阅</span>'
+                :'<span class="tag t-gray">—</span>';
+    return `<tr><td><b>${s.exam}</b></td><td>${s.person}</td><td>${s.dept}</td>
+      <td>${status}</td>
+      <td>${s.pass===null?'—':s.pass?'<span class="tag t-green"><i class="sdot g"></i>通过</span>':'<span class="tag t-red"><i class="sdot d"></i>未通过</span>'}</td>
+      <td><span class="act-v" onclick="gradePaper(${s.id})">${s.score==='阅卷中'?'阅卷':'查看'}</span></td></tr>`;
+  });
+  const pg=paginate(all,gradePage,PAGE_SIZE);
+  const rows=pg.items.join("");
   $("#v-grade").innerHTML=`
   <div class="page-head"><h2>审卷管理</h2><span class="sub">客观题自动判分，主观题人工阅卷</span></div>
-  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>考试</th><th>考生</th><th>部门</th><th>客观分</th><th>结果</th><th>操作</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+  <div class="card"><div class="tbl-wrap"><table><thead><tr><th>考试</th><th>考生</th><th>部门</th><th>状态</th><th>结果</th><th>操作</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
 }
-function gradePaper(id){const s=scores.find(x=>x.id===id);
+function gradePaper(id){
+  const s=scores.find(x=>x.id===id);
   const e=exams.find(x=>x.name===s.exam)||exams.find(x=>x.id===s.eid);
   const p=e?papers.find(x=>x.id===e.paper):null;
   const qs=p?p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean):[];
-  const obj=qs.filter(q=>q.type!=="简答题"&&q.type!=="填空题");
-  const subj=qs.filter(q=>q.type==="简答题"||q.type==="填空题");
+  const obj=qs.filter(q=>q.type!=="问答题"&&q.type!=="简答题"&&q.type!=="填空题");
+  const subj=qs.filter(q=>q.type==="问答题"||q.type==="简答题"||q.type==="填空题");
   const objScore=s.obj!=null?s.obj:obj.reduce((a,q)=>a+((p.sc&&p.sc[p.q.indexOf(q.id)])||10),0);
-  const subRows=subj.map(q=>{const full=(p.sc&&p.sc[p.q.indexOf(q.id)])||10;
-    return `<div style="border:1px solid var(--border);border-radius:11px;padding:14px;margin-bottom:12px">
-      <b>[${q.type}]</b> ${q.stem}
-      <div style="margin:8px 0;color:var(--text-2);font-size:13px;line-height:1.8">考生作答：${q.opts[0]||"（开放式作答，详见答卷记录）"}</div>
-      <div style="display:flex;align-items:center;gap:10px">阅卷打分：<input id="gs-${q.id}" value="${Math.round(full*0.7)}" style="width:72px;padding:7px 10px;border:1px solid var(--border);border-radius:9px;background:var(--card-2);color:var(--text)"> / ${full} 分</div>
-    </div>`;}).join("");
-  openModal(`<div class="m-head"><h3>人工阅卷 · ${s.person}（${s.exam}）</h3><button class="x" onclick="closeModal()">${ic('x')}</button></div>
-  <div class="m-body" style="max-height:64vh">
-    <div style="padding:13px 16px;background:var(--card-2);border-radius:11px;margin-bottom:16px;font-size:13.5px">客观题自动判分：<b>${objScore} 分</b>（单选/多选/判断由系统判定）</div>
-    ${subj.length?`<h4 style="margin:6px 0 10px;font-size:13px">主观题人工阅卷（${subj.length} 题）</h4>${subRows}`:`<p style="color:var(--text-3);font-size:13px">本卷无主观题，客观分即为总分。</p>`}
-    <div class="field"><label>阅卷评语</label><textarea id="grade-note" rows="2" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card-2);color:var(--text);font-family:inherit;resize:vertical" placeholder="阅卷意见">要点基本完整，建议补充移动介质淘汰处置要求</textarea></div>
-  </div>
-  <div class="m-foot"><button class="btn-2" onclick="closeModal()">取消</button>
-    <button class="btn-p" onclick="finishGrade(${id})">${ic('check')}<span>核定总分并归档</span></button></div>`,"lg");}
-function finishGrade(id){const s=scores.find(x=>x.id===id);
+  // 状态映射
+  const statusLabel=score=>score==="阅卷中"?'待阅卷':score==="复核中"?'复核中':score==="已批阅"||typeof score==="number"?'已批阅':'—';
+  const statusCls=score=>score==="阅卷中"?'t-blue':score==="复核中"?'t-amber':'t-green';
+  // 把所有 score 列入考生列表（同一试卷）
+  const list=scores.filter(x=>((x.eid||x.exam))===(s.eid||s.exam)).map(x=>{
+    const on=x.id===id;
+    return `<div class="gp-ppl ${on?'on':''}" onclick="gradePaper(${x.id})">
+      <div class="gp-ppl-name">${x.person}</div>
+      <span class="tag ${statusCls(x.score)}">${statusLabel(x.score)}</span>
+    </div>`;
+  }).join("");
+  // 中文数字序号 一二三四五六七八九十
+  const cnNum=n=>{const c="零一二三四五六七八九十";if(n<=10)return c[n];if(n<20)return "十"+(n-10===0?"":c[n-10]);const t=Math.floor(n/10),o=n%10;return c[t]+"十"+(o?c[o]:"");};
+  // 中间题目区
+  const subCards=subj.map((q,i)=>{const full=(p.sc&&p.sc[p.q.indexOf(q.id)])||10;
+    const ua=(s.ans&&s.ans[q.id])||"（未作答）";
+    const ref=q.opts[0]||"";
+    const analysis=q.analysis||ref;
+    return `<div class="gp-card">
+      <div class="gp-qhead">${cnNum(i+1)}：${q.type} <span class="gp-pt">（${full}分）</span></div>
+      <div class="gp-qstem">${q.stem}</div>
+      <div class="gp-qsec">
+        <div class="gp-qsec-h">学生作答</div>
+        <div class="gp-qans">${ua||"（空）"}</div>
+      </div>
+      <div class="gp-qsec">
+        <details open><summary>参考答案</summary><div class="gp-qref">${analysis||ref||"暂无参考答案"}</div></details>
+      </div>
+      <div class="gp-qscore">
+        <div class="gp-qscore-h">输入评分：本题满分 ${full} 分</div>
+        <input id="gs-${q.id}" placeholder="输入分数" type="number" min="0" max="${full}" oninput="gpRecalc(${id})">
+      </div>
+      <div class="gp-qscore">
+        <div class="gp-qscore-h">输入评语：</div>
+        <textarea id="gc-${q.id}" placeholder="请输入评语" rows="2"></textarea>
+      </div>
+    </div>`;
+  }).join("");
+  // 右侧汇总（含底部按钮）
+  const summary=`<aside class="gp-sum">
+    <div class="gp-sum-block">
+      <div class="gp-sum-h">汇总信息</div>
+      <div class="gp-sum-row"><span>姓名</span><b>${s.person}</b></div>
+      <div class="gp-sum-row"><span>批阅进度</span><b class="gp-prog">0%</b></div>
+      <div class="gp-sum-row"><span>总分</span><b class="gp-total">${objScore}</b></div>
+    </div>
+    <div class="gp-sum-actions">
+      <button class="cp-go" onclick="finishGrade(${id})">${ic('check')}<span>保存并下一份</span></button>
+      <button class="btn-2" onclick="gradeSaveDraft(${id})">保存草稿</button>
+    </div>
+  </aside>`;
+  // 标题编号 ANS-前缀
+  const ansNo=s.ansNo||("ANS"+new Date().getFullYear()+String(new Date().getMonth()+1).padStart(2,"0")+String(new Date().getDate()).padStart(2,"0")+"-"+s.id);
+  if(!s.ansNo)s.ansNo=ansNo;
+  $("#v-grade").innerHTML=`
+    <div class="page-head"><h2>在线阅卷 · ${s.person}（${ansNo}）</h2>
+      <span class="sub">批阅每一份答卷，完成后点击「保存并下一份」自动切到下一位待阅卷考生</span>
+      <div class="spacer"></div>
+      <button class="x" onclick="showView('grade');renderGrade();">${ic('x')}<span style="margin-left:6px">退出阅卷</span></button></div>
+    <div class="gp-layout">
+      <aside class="gp-side">
+        <div class="gp-side-h">考生列表</div>
+        <div class="gp-side-list">${list||'<div class="empty">暂无待阅卷考生</div>'}</div>
+      </aside>
+      <main class="gp-main">
+        ${subj.length?subCards:`<div class="empty" style="padding:40px">本卷无主观题，客观分即为总分。</div>`}
+      </main>
+      ${summary}
+    </div>
+    <div class="gp-foot">
+      <button class="btn-2" onclick="gradePaperPrev()">${ic('chevLeft')}<span>上一份</span></button>
+      <span class="gp-foot-tip">只批阅问答题，单选题，多选题，判断题自动批阅</span>
+      <button class="btn-2" onclick="gradePaperNext()">${ic('chevRight')}<span>下一份</span></button>
+    </div>`;
+  window._gpid=id;window._gpList=scores.filter(x=>((x.eid||x.exam))===(s.eid||s.exam)).map(x=>x.id);
+  // 加载草稿（如有）
+  const d=(s.grade||{});
+  subj.forEach(q=>{const full=(p.sc&&p.sc[p.q.indexOf(q.id)])||10;const v=d[q.id];if(v!=null){const inp=$("#gs-"+q.id);if(inp)inp.value=v;}const c=d[q.id+"c"];if(c!=null){const ct=$("#gc-"+q.id);if(ct)ct.value=c;}});
+  gpRecalc(id);
+}
+function gpRecalc(id){
+  const s=scores.find(x=>x.id===id);
   const e=exams.find(x=>x.name===s.exam)||exams.find(x=>x.id===s.eid);
   const p=e?papers.find(x=>x.id===e.paper):null;
   const qs=p?p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean):[];
-  let subjSum=0;
-  qs.forEach(q=>{if(q.type==="简答题"||q.type==="填空题"){const inp=$("#gs-"+q.id);subjSum+=inp?(parseInt(inp.value)||0):0;}});
+  const subj=qs.filter(q=>q.type==="问答题"||q.type==="简答题"||q.type==="填空题");
+  const objScore=s.obj!=null?s.obj:qs.filter(q=>q.type!=="问答题"&&q.type!=="简答题"&&q.type!=="填空题").reduce((a,q)=>a+((p.sc&&p.sc[p.q.indexOf(q.id)])||10),0);
+  let subSum=0,done=0;
+  subj.forEach(q=>{const v=parseInt($("#gs-"+q.id)?.value);if(!isNaN(v)){subSum+=v;done++;}});
+  const total=objScore+subSum;
+  const progress=subj.length?Math.round(done/subj.length*100):100;
+  const progEl=document.querySelector(".gp-prog");if(progEl)progEl.textContent=progress+"%";
+  const totEl=document.querySelector(".gp-total");if(totEl)totEl.textContent=total;
+}
+function gradeSaveDraft(id){
+  const s=scores.find(x=>x.id===id);
+  const e=exams.find(x=>x.name===s.exam)||exams.find(x=>x.id===s.eid);
+  const p=e?papers.find(x=>x.id===e.paper):null;
+  const qs=p?p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean):[];
+  const subj=qs.filter(q=>q.type==="问答题"||q.type==="简答题"||q.type==="填空题");
+  s.grade=s.grade||{};
+  subj.forEach(q=>{const v=parseInt($("#gs-"+q.id)?.value);if(!isNaN(v))s.grade[q.id]=v;const ct=$("#gc-"+q.id);if(ct&&ct.value)s.grade[q.id+"c"]=ct.value;});
+  persist();toast("草稿已保存");
+}
+function gradePaperPrev(){const a=window._gpList||[];const i=a.indexOf(window._gpid);if(i>0)gradePaper(a[i-1]);else toast("已是第一份");}
+function gradePaperNext(){const a=window._gpList||[];const i=a.indexOf(window._gpid);if(i>=0&&i<a.length-1)gradePaper(a[i+1]);else toast("已是最后一份");}
+function finishGrade(id){
+  const s=scores.find(x=>x.id===id);
+  const e=exams.find(x=>x.name===s.exam)||exams.find(x=>x.id===s.eid);
+  const p=e?papers.find(x=>x.id===e.paper):null;
+  const qs=p?p.q.map(i=>bankData.find(b=>b.id===i)).filter(Boolean):[];
+  let subjSum=0;const grade={};
+  qs.forEach(q=>{if(q.type==="问答题"||q.type==="填空题"){const inp=$("#gs-"+q.id);const v=inp?(parseInt(inp.value)||0):0;subjSum+=v;grade[q.id]=v;const ct=$("#gc-"+q.id);if(ct)grade[q.id+"c"]=ct.value;}});
   const obj=s.obj!=null?s.obj:0;
   const final=obj+subjSum;
-  s.score=final;s.pass=final>=60;s.cert=s.pass?"BM2026-"+String(300+id):"—";persist();
-  closeModal();renderGrade();toast("阅卷完成，成绩已归档");}
+  s.score=final;s.pass=final>=60;s.cert=s.pass?"BM2026-"+String(300+id):"—";s.grade=grade;persist();
+  toast("阅卷完成，已归档 "+s.person+"："+final+" 分");
+  // 自动切到下一份
+  const a=window._gpList||[];
+  const i=a.indexOf(id);
+  if(i>=0&&i<a.length-1){gradePaper(a[i+1]);}
+  else{renderGrade();showView('grade');}
+}
 
 /* ============ 成绩管理 ============ */
 function renderScores(){
-  const rows=scores.map(s=>`<tr><td><b>${s.exam}</b></td><td>${s.person}</td><td>${s.dept}</td>
+  const all=scores.map(s=>`<tr><td><b>${s.exam}</b></td><td>${s.person}</td><td>${s.dept}</td>
     <td>${scoreCell(s.score)}</td>
     <td>${s.pass===null?'—':s.pass?'<span class="tag t-green"><i class="sdot g"></i>通过</span>':'<span class="tag t-red"><i class="sdot d"></i>未通过</span>'}</td>
     <td>${s.cert==='—'?'—':s.cert}</td>
-    <td><span class="${s.pass?'act-v':'act-n'}" ${s.pass?`onclick="showCert('${s.person}','${s.cert}','${s.exam}',${s.score})"`:''}>合格证</span></td></tr>`).join("");
+    <td><span class="${s.pass?'act-v':'act-n'}" ${s.pass?`onclick="showCert('${s.person}','${s.cert}','${s.exam}',${s.score})"`:''}>合格证</span></td></tr>`);
+  const pg=paginate(all,scorePage,PAGE_SIZE);
+  const rows=pg.items.join("");
   $("#v-score").innerHTML=`
   <div class="page-head"><h2>成绩管理</h2><span class="sub">合格分数线 60 分 · 可发放保密培训合格证</span><div class="spacer"></div>
     <button class="btn-2" onclick="exportScores()">${ic('download')}<span>导出成绩表</span></button>
@@ -1595,10 +2001,12 @@ function drawHist(d){
 /* ============ 考生管理 ============ */
 function renderPersons(){
   const lvC={核心:'t-red',重要:'t-amber',一般:'t-blue'};
-  const rows=persons.map(p=>`<tr><td><div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;background:var(--cp-bg);color:var(--cp);display:flex;align-items:center;justify-content:center;font-weight:600">${p.name[0]}</div><b>${p.name}</b></div></td>
+  const all=persons.map(p=>`<tr><td><div style="display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:50%;background:var(--cp-bg);color:var(--cp);display:flex;align-items:center;justify-content:center;font-weight:600">${p.name[0]}</div><b>${p.name}</b></div></td>
     <td>${p.dept}</td><td><span class="tag ${lvC[p.lv]}">${p.lv}涉密</span></td>
     <td>${p.cert?'<span class="tag t-green"><i class="sdot g"></i>持证</span>':'<span class="tag t-red"><i class="sdot d"></i>未持证</span>'}</td><td>${p.last}</td>
-    <td><div class="row-act"><span class="act-v">详情</span><span class="act-c" onclick="toast('已发送补考/复训提醒')">提醒</span><span class="act-d" onclick="delPerson(${p.id})">删除</span></div></td></tr>`).join("");
+    <td><div class="row-act"><span class="act-v">详情</span><span class="act-c" onclick="toast('已发送补考/复训提醒')">提醒</span><span class="act-d" onclick="delPerson(${p.id})">删除</span></div></td></tr>`);
+  const pg=paginate(all,personPage,PAGE_SIZE);
+  const rows=pg.items.join("");
   $("#v-person").innerHTML=`
   <div class="page-head"><h2>考生管理</h2><span class="sub">涉密人员台账 · 持证状态跟踪</span><div class="spacer"></div>
     <button class="btn-2" onclick="openPersonImport()">${ic('upload')}<span>导入</span></button>
@@ -1715,9 +2123,8 @@ function renderSetting(){
       ${logs.map(l=>`<div class="ni" style="display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed var(--border);font-size:13px;align-items:center"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:#165DFF;flex:none"></span><div style="flex:1">${l.user} ${l.act}</div><span style="color:var(--text-3);font-size:11.5px;white-space:nowrap">${l.t} · ${l.ip}</span></div>`).join("")}
     </div>
     <div class="card">
-      <h4 style="margin-bottom:10px;font-size:14px">密级标识</h4>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">${["内部","秘密","机密","绝密"].map(l=>`<span class="tag ${l==='秘密'||l==='机密'?'t-amber':l==='绝密'?'t-red':'t-gray'}">${l}</span>`).join("")}</div>
-      <p style="font-size:12px;color:var(--text-3);margin-top:10px;line-height:1.7">当前系统密级：<b>秘密</b>。<br>修改密级需保密行政管理部门审批，操作将记入审计日志。</p>
+      <h4 style="margin-bottom:10px;font-size:14px">操作日志</h4>
+      <p style="font-size:12px;color:var(--text-3);margin-bottom:10px;line-height:1.7">所有增删改查操作均记录到审计日志，可追溯到具体人员与时间。</p>
     </div>
   </div>`;
 }
